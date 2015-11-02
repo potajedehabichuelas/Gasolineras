@@ -7,14 +7,38 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		33BAE88C1BE7BA0500118DCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BAE88B1BE7BA0500118DCA /* AppDelegate.swift */; };
-		33BAE88E1BE7BA0500118DCA /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BAE88D1BE7BA0500118DCA /* FirstViewController.swift */; };
-		33BAE8901BE7BA0500118DCA /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BAE88F1BE7BA0500118DCA /* SecondViewController.swift */; };
 		33BAE8931BE7BA0500118DCA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33BAE8911BE7BA0500118DCA /* Main.storyboard */; };
 		33BAE8951BE7BA0500118DCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33BAE8941BE7BA0500118DCA /* Assets.xcassets */; };
 		33BAE8981BE7BA0500118DCA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33BAE8961BE7BA0500118DCA /* LaunchScreen.storyboard */; };
-		33BAE8A31BE7BA0600118DCA /* GasolinerasTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BAE8A21BE7BA0600118DCA /* GasolinerasTests.swift */; };
+		33BAE8A31BE7BA0600118DCA /* StorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BAE8A21BE7BA0600118DCA /* StorageTests.swift */; };
 		33BAE8AE1BE7BA0600118DCA /* GasolinerasUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BAE8AD1BE7BA0600118DCA /* GasolinerasUITests.swift */; };
+		33BAE8C01BE7BA7900118DCA /* CoreData Entities in Resources */ = {isa = PBXBuildFile; fileRef = 33BAE8BB1BE7BA7900118DCA /* CoreData Entities */; };
+		33BAE8C11BE7BA7900118DCA /* Network in Resources */ = {isa = PBXBuildFile; fileRef = 33BAE8BC1BE7BA7900118DCA /* Network */; };
+		33BAE8C21BE7BA7900118DCA /* Objects in Resources */ = {isa = PBXBuildFile; fileRef = 33BAE8BD1BE7BA7900118DCA /* Objects */; };
+		33BAE8C31BE7BA7900118DCA /* Storage in Resources */ = {isa = PBXBuildFile; fileRef = 33BAE8BE1BE7BA7900118DCA /* Storage */; };
+		33BAE8C41BE7BA7900118DCA /* VC in Resources */ = {isa = PBXBuildFile; fileRef = 33BAE8BF1BE7BA7900118DCA /* VC */; };
+		33BAE8D41BE7BDAB00118DCA /* PetrolStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BAE8D11BE7BDAB00118DCA /* PetrolStation.swift */; };
+		33BAE8D51BE7BDAB00118DCA /* StationsXCountry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BAE8D21BE7BDAB00118DCA /* StationsXCountry.swift */; };
+		33BAE8D61BE7BDAB00118DCA /* StationsXState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BAE8D31BE7BDAB00118DCA /* StationsXState.swift */; };
+		33BAE8D91BE7BDB200118DCA /* CountryStations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BAE8D71BE7BDB200118DCA /* CountryStations.swift */; };
+		33BAE8DA1BE7BDB200118DCA /* Gasolinera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BAE8D81BE7BDB200118DCA /* Gasolinera.swift */; };
+		33BAE8DD1BE7BDBE00118DCA /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BAE8DB1BE7BDBE00118DCA /* FirstViewController.swift */; };
+		33BAE8DE1BE7BDBE00118DCA /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BAE8DC1BE7BDBE00118DCA /* SecondViewController.swift */; };
+		33BAE8E01BE7BDC600118DCA /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BAE8DF1BE7BDC600118DCA /* Storage.swift */; };
+		33BAE8E41BE7BDD400118DCA /* HttpHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BAE8E21BE7BDD400118DCA /* HttpHelper.swift */; };
+		33BAE8E51BE7BDD400118DCA /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BAE8E31BE7BDD400118DCA /* NetworkManager.swift */; };
+		33BAE8F01BE7DA3D00118DCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BAE8ED1BE7DA3D00118DCA /* AppDelegate.swift */; };
+		33BAE8F51BE7DADD00118DCA /* Gasolineras.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 33BAE8F31BE7DADD00118DCA /* Gasolineras.xcdatamodeld */; };
+		33BAE8F61BE7DDB800118DCA /* HttpHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BAE8E21BE7BDD400118DCA /* HttpHelper.swift */; };
+		33BAE8F71BE7DDB800118DCA /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BAE8E31BE7BDD400118DCA /* NetworkManager.swift */; };
+		33BAE8F81BE7DDB800118DCA /* PetrolStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BAE8D11BE7BDAB00118DCA /* PetrolStation.swift */; };
+		33BAE8F91BE7DDB800118DCA /* StationsXCountry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BAE8D21BE7BDAB00118DCA /* StationsXCountry.swift */; };
+		33BAE8FA1BE7DDB800118DCA /* StationsXState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BAE8D31BE7BDAB00118DCA /* StationsXState.swift */; };
+		33BAE8FB1BE7DDB800118DCA /* CountryStations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BAE8D71BE7BDB200118DCA /* CountryStations.swift */; };
+		33BAE8FC1BE7DDB800118DCA /* Gasolinera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BAE8D81BE7BDB200118DCA /* Gasolinera.swift */; };
+		33BAE8FD1BE7DDB800118DCA /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BAE8DF1BE7BDC600118DCA /* Storage.swift */; };
+		94CA144606B98F98B888B08D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7693144179439A229C467281 /* libPods.a */; };
+		950386A382B84B1C093E0660 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7693144179439A229C467281 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,19 +60,37 @@
 
 /* Begin PBXFileReference section */
 		33BAE8881BE7BA0500118DCA /* Gasolineras.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gasolineras.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		33BAE88B1BE7BA0500118DCA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		33BAE88D1BE7BA0500118DCA /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		33BAE88F1BE7BA0500118DCA /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		33BAE8921BE7BA0500118DCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		33BAE8941BE7BA0500118DCA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		33BAE8971BE7BA0500118DCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		33BAE8991BE7BA0500118DCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		33BAE89E1BE7BA0600118DCA /* GasolinerasTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GasolinerasTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		33BAE8A21BE7BA0600118DCA /* GasolinerasTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasolinerasTests.swift; sourceTree = "<group>"; };
+		33BAE8A21BE7BA0600118DCA /* StorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageTests.swift; sourceTree = "<group>"; };
 		33BAE8A41BE7BA0600118DCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		33BAE8A91BE7BA0600118DCA /* GasolinerasUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GasolinerasUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		33BAE8AD1BE7BA0600118DCA /* GasolinerasUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasolinerasUITests.swift; sourceTree = "<group>"; };
 		33BAE8AF1BE7BA0600118DCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		33BAE8BB1BE7BA7900118DCA /* CoreData Entities */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "CoreData Entities"; path = "/Users/Dani/Desktop/new Gas/Gasolineras/Gasolineras/CoreData Entities"; sourceTree = "<absolute>"; };
+		33BAE8BC1BE7BA7900118DCA /* Network */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Network; path = "/Users/Dani/Desktop/new Gas/Gasolineras/Gasolineras/Network"; sourceTree = "<absolute>"; };
+		33BAE8BD1BE7BA7900118DCA /* Objects */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Objects; path = "/Users/Dani/Desktop/new Gas/Gasolineras/Gasolineras/Objects"; sourceTree = "<absolute>"; };
+		33BAE8BE1BE7BA7900118DCA /* Storage */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Storage; path = "/Users/Dani/Desktop/new Gas/Gasolineras/Gasolineras/Storage"; sourceTree = "<absolute>"; };
+		33BAE8BF1BE7BA7900118DCA /* VC */ = {isa = PBXFileReference; lastKnownFileType = folder; name = VC; path = "/Users/Dani/Desktop/new Gas/Gasolineras/Gasolineras/VC"; sourceTree = "<absolute>"; };
+		33BAE8D11BE7BDAB00118DCA /* PetrolStation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PetrolStation.swift; path = "CoreData Entities/PetrolStation.swift"; sourceTree = "<group>"; };
+		33BAE8D21BE7BDAB00118DCA /* StationsXCountry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StationsXCountry.swift; path = "CoreData Entities/StationsXCountry.swift"; sourceTree = "<group>"; };
+		33BAE8D31BE7BDAB00118DCA /* StationsXState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StationsXState.swift; path = "CoreData Entities/StationsXState.swift"; sourceTree = "<group>"; };
+		33BAE8D71BE7BDB200118DCA /* CountryStations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CountryStations.swift; path = Objects/CountryStations.swift; sourceTree = "<group>"; };
+		33BAE8D81BE7BDB200118DCA /* Gasolinera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Gasolinera.swift; path = Objects/Gasolinera.swift; sourceTree = "<group>"; };
+		33BAE8DB1BE7BDBE00118DCA /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirstViewController.swift; path = VC/FirstViewController.swift; sourceTree = "<group>"; };
+		33BAE8DC1BE7BDBE00118DCA /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SecondViewController.swift; path = VC/SecondViewController.swift; sourceTree = "<group>"; };
+		33BAE8DF1BE7BDC600118DCA /* Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Storage.swift; path = Storage/Storage.swift; sourceTree = "<group>"; };
+		33BAE8E21BE7BDD400118DCA /* HttpHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HttpHelper.swift; path = Network/HttpHelper.swift; sourceTree = "<group>"; };
+		33BAE8E31BE7BDD400118DCA /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkManager.swift; path = Network/NetworkManager.swift; sourceTree = "<group>"; };
+		33BAE8ED1BE7DA3D00118DCA /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "Supporting Files/AppDelegate.swift"; sourceTree = "<group>"; };
+		33BAE8EE1BE7DA3D00118DCA /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Bridging-Header.h"; path = "Supporting Files/Bridging-Header.h"; sourceTree = "<group>"; };
+		33BAE8EF1BE7DA3D00118DCA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "Supporting Files/Info.plist"; sourceTree = "<group>"; };
+		33BAE8F41BE7DADD00118DCA /* Gasolineras.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Gasolineras.xcdatamodel; sourceTree = "<group>"; };
+		46B9C5DF3406BFAAF481558C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		7693144179439A229C467281 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8C5443D79092ECAEB91087D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				950386A382B84B1C093E0660 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94CA144606B98F98B888B08D /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +120,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		03526B32B7D0DB286B8A2C05 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E8C5443D79092ECAEB91087D /* Pods.debug.xcconfig */,
+				46B9C5DF3406BFAAF481558C /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		0F975A776700655B763EA9BF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7693144179439A229C467281 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		33BAE87F1BE7BA0500118DCA = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +144,8 @@
 				33BAE8A11BE7BA0600118DCA /* GasolinerasTests */,
 				33BAE8AC1BE7BA0600118DCA /* GasolinerasUITests */,
 				33BAE8891BE7BA0500118DCA /* Products */,
+				03526B32B7D0DB286B8A2C05 /* Pods */,
+				0F975A776700655B763EA9BF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,13 +162,15 @@
 		33BAE88A1BE7BA0500118DCA /* Gasolineras */ = {
 			isa = PBXGroup;
 			children = (
-				33BAE88B1BE7BA0500118DCA /* AppDelegate.swift */,
-				33BAE88D1BE7BA0500118DCA /* FirstViewController.swift */,
-				33BAE88F1BE7BA0500118DCA /* SecondViewController.swift */,
+				33BAE8E11BE7BDC900118DCA /* Network */,
+				33BAE8D01BE7BD9E00118DCA /* Core Data Entities */,
+				33BAE8CF1BE7BD9800118DCA /* Objects */,
+				33BAE8CE1BE7BD9000118DCA /* Storage */,
+				33BAE8CD1BE7BD8B00118DCA /* VC */,
 				33BAE8911BE7BA0500118DCA /* Main.storyboard */,
 				33BAE8941BE7BA0500118DCA /* Assets.xcassets */,
 				33BAE8961BE7BA0500118DCA /* LaunchScreen.storyboard */,
-				33BAE8991BE7BA0500118DCA /* Info.plist */,
+				33BAE8F21BE7DA4000118DCA /* Supporting Files */,
 			);
 			path = Gasolineras;
 			sourceTree = "<group>";
@@ -113,7 +178,7 @@
 		33BAE8A11BE7BA0600118DCA /* GasolinerasTests */ = {
 			isa = PBXGroup;
 			children = (
-				33BAE8A21BE7BA0600118DCA /* GasolinerasTests.swift */,
+				33BAE8A21BE7BA0600118DCA /* StorageTests.swift */,
 				33BAE8A41BE7BA0600118DCA /* Info.plist */,
 			);
 			path = GasolinerasTests;
@@ -128,6 +193,62 @@
 			path = GasolinerasUITests;
 			sourceTree = "<group>";
 		};
+		33BAE8CD1BE7BD8B00118DCA /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				33BAE8DB1BE7BDBE00118DCA /* FirstViewController.swift */,
+				33BAE8DC1BE7BDBE00118DCA /* SecondViewController.swift */,
+			);
+			name = VC;
+			sourceTree = "<group>";
+		};
+		33BAE8CE1BE7BD9000118DCA /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				33BAE8DF1BE7BDC600118DCA /* Storage.swift */,
+			);
+			name = Storage;
+			sourceTree = "<group>";
+		};
+		33BAE8CF1BE7BD9800118DCA /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				33BAE8D71BE7BDB200118DCA /* CountryStations.swift */,
+				33BAE8D81BE7BDB200118DCA /* Gasolinera.swift */,
+			);
+			name = Objects;
+			sourceTree = "<group>";
+		};
+		33BAE8D01BE7BD9E00118DCA /* Core Data Entities */ = {
+			isa = PBXGroup;
+			children = (
+				33BAE8D11BE7BDAB00118DCA /* PetrolStation.swift */,
+				33BAE8D21BE7BDAB00118DCA /* StationsXCountry.swift */,
+				33BAE8D31BE7BDAB00118DCA /* StationsXState.swift */,
+			);
+			name = "Core Data Entities";
+			sourceTree = "<group>";
+		};
+		33BAE8E11BE7BDC900118DCA /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				33BAE8E21BE7BDD400118DCA /* HttpHelper.swift */,
+				33BAE8E31BE7BDD400118DCA /* NetworkManager.swift */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
+		33BAE8F21BE7DA4000118DCA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				33BAE8F31BE7DADD00118DCA /* Gasolineras.xcdatamodeld */,
+				33BAE8ED1BE7DA3D00118DCA /* AppDelegate.swift */,
+				33BAE8EE1BE7DA3D00118DCA /* Bridging-Header.h */,
+				33BAE8EF1BE7DA3D00118DCA /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +256,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 33BAE8B21BE7BA0600118DCA /* Build configuration list for PBXNativeTarget "Gasolineras" */;
 			buildPhases = (
+				71DD5A3995188308A35B1CD0 /* Check Pods Manifest.lock */,
 				33BAE8841BE7BA0500118DCA /* Sources */,
 				33BAE8851BE7BA0500118DCA /* Frameworks */,
 				33BAE8861BE7BA0500118DCA /* Resources */,
+				9DFB99AF6B093401BA953FA6 /* Embed Pods Frameworks */,
+				76730C2CD5E52057E327AEA7 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -152,9 +276,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 33BAE8B51BE7BA0600118DCA /* Build configuration list for PBXNativeTarget "GasolinerasTests" */;
 			buildPhases = (
+				1C7AD5A31739C2A1B8E7A4A6 /* Check Pods Manifest.lock */,
 				33BAE89A1BE7BA0600118DCA /* Sources */,
 				33BAE89B1BE7BA0600118DCA /* Frameworks */,
 				33BAE89C1BE7BA0600118DCA /* Resources */,
+				5923D22060380979B3B39614 /* Embed Pods Frameworks */,
+				37DCDD688303D4A2A3DCD811 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -233,8 +360,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				33BAE8981BE7BA0500118DCA /* LaunchScreen.storyboard in Resources */,
+				33BAE8C01BE7BA7900118DCA /* CoreData Entities in Resources */,
+				33BAE8C31BE7BA7900118DCA /* Storage in Resources */,
 				33BAE8951BE7BA0500118DCA /* Assets.xcassets in Resources */,
+				33BAE8C21BE7BA7900118DCA /* Objects in Resources */,
 				33BAE8931BE7BA0500118DCA /* Main.storyboard in Resources */,
+				33BAE8C11BE7BA7900118DCA /* Network in Resources */,
+				33BAE8C41BE7BA7900118DCA /* VC in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,14 +386,116 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1C7AD5A31739C2A1B8E7A4A6 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		37DCDD688303D4A2A3DCD811 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5923D22060380979B3B39614 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		71DD5A3995188308A35B1CD0 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		76730C2CD5E52057E327AEA7 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9DFB99AF6B093401BA953FA6 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		33BAE8841BE7BA0500118DCA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				33BAE8901BE7BA0500118DCA /* SecondViewController.swift in Sources */,
-				33BAE88C1BE7BA0500118DCA /* AppDelegate.swift in Sources */,
-				33BAE88E1BE7BA0500118DCA /* FirstViewController.swift in Sources */,
+				33BAE8F01BE7DA3D00118DCA /* AppDelegate.swift in Sources */,
+				33BAE8E51BE7BDD400118DCA /* NetworkManager.swift in Sources */,
+				33BAE8D41BE7BDAB00118DCA /* PetrolStation.swift in Sources */,
+				33BAE8DA1BE7BDB200118DCA /* Gasolinera.swift in Sources */,
+				33BAE8DE1BE7BDBE00118DCA /* SecondViewController.swift in Sources */,
+				33BAE8DD1BE7BDBE00118DCA /* FirstViewController.swift in Sources */,
+				33BAE8D61BE7BDAB00118DCA /* StationsXState.swift in Sources */,
+				33BAE8D51BE7BDAB00118DCA /* StationsXCountry.swift in Sources */,
+				33BAE8F51BE7DADD00118DCA /* Gasolineras.xcdatamodeld in Sources */,
+				33BAE8D91BE7BDB200118DCA /* CountryStations.swift in Sources */,
+				33BAE8E41BE7BDD400118DCA /* HttpHelper.swift in Sources */,
+				33BAE8E01BE7BDC600118DCA /* Storage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,7 +503,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				33BAE8A31BE7BA0600118DCA /* GasolinerasTests.swift in Sources */,
+				33BAE8FC1BE7DDB800118DCA /* Gasolinera.swift in Sources */,
+				33BAE8F71BE7DDB800118DCA /* NetworkManager.swift in Sources */,
+				33BAE8A31BE7BA0600118DCA /* StorageTests.swift in Sources */,
+				33BAE8F81BE7DDB800118DCA /* PetrolStation.swift in Sources */,
+				33BAE8F91BE7DDB800118DCA /* StationsXCountry.swift in Sources */,
+				33BAE8FD1BE7DDB800118DCA /* Storage.swift in Sources */,
+				33BAE8F61BE7DDB800118DCA /* HttpHelper.swift in Sources */,
+				33BAE8FA1BE7DDB800118DCA /* StationsXState.swift in Sources */,
+				33BAE8FB1BE7DDB800118DCA /* CountryStations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,46 +643,60 @@
 		};
 		33BAE8B31BE7BA0600118DCA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E8C5443D79092ECAEB91087D /* Pods.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = Gasolineras/Info.plist;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
+				INFOPLIST_FILE = "$(SRCROOT)/Gasolineras/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Xquare.Gasolineras;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Gasolineras/Supporting Files/Bridging-Header.h";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
 		33BAE8B41BE7BA0600118DCA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 46B9C5DF3406BFAAF481558C /* Pods.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = Gasolineras/Info.plist;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
+				INFOPLIST_FILE = "$(SRCROOT)/Gasolineras/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Xquare.Gasolineras;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Gasolineras/Supporting Files/Bridging-Header.h";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
 		};
 		33BAE8B61BE7BA0600118DCA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E8C5443D79092ECAEB91087D /* Pods.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = GasolinerasTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Xquare.GasolinerasTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/Dani/Desktop/new Gas/Gasolineras/Gasolineras/Supporting Files/Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gasolineras.app/Gasolineras";
 			};
 			name = Debug;
 		};
 		33BAE8B71BE7BA0600118DCA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 46B9C5DF3406BFAAF481558C /* Pods.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = GasolinerasTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Xquare.GasolinerasTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/Dani/Desktop/new Gas/Gasolineras/Gasolineras/Supporting Files/Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gasolineras.app/Gasolineras";
 			};
 			name = Release;
@@ -488,6 +744,7 @@
 				33BAE8B41BE7BA0600118DCA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		33BAE8B51BE7BA0600118DCA /* Build configuration list for PBXNativeTarget "GasolinerasTests" */ = {
 			isa = XCConfigurationList;
@@ -496,6 +753,7 @@
 				33BAE8B71BE7BA0600118DCA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		33BAE8B81BE7BA0600118DCA /* Build configuration list for PBXNativeTarget "GasolinerasUITests" */ = {
 			isa = XCConfigurationList;
@@ -504,8 +762,23 @@
 				33BAE8BA1BE7BA0600118DCA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		33BAE8F31BE7DADD00118DCA /* Gasolineras.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				33BAE8F41BE7DADD00118DCA /* Gasolineras.xcdatamodel */,
+			);
+			currentVersion = 33BAE8F41BE7DADD00118DCA /* Gasolineras.xcdatamodel */;
+			name = Gasolineras.xcdatamodeld;
+			path = "Supporting Files/Gasolineras.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 33BAE8801BE7BA0500118DCA /* Project object */;
 }

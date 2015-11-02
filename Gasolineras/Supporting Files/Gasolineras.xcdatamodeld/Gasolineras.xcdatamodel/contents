@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="15A284" minimumToolsVersion="Xcode 4.3">
+    <entity name="PetrolStation" representedClassName=".PetrolStation" syncable="YES">
+        <attribute name="bioalcohol" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="biodiesel" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="bioetanol" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="cp" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="direccion" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="esterMetilico" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="gasNatural" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="gasoleoA" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="gasolina95" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="gasolina98" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="horario" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="latitud" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="localidad" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="longitud" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="margen" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="municipio" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nuevoGasoleoA" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="provincia" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="remision" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rotulo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tipoVenta" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="belongsToState" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StationsXState" inverseName="hasStation" inverseEntity="StationsXState" syncable="YES"/>
+    </entity>
+    <entity name="StationsXCountry" representedClassName=".StationsXCountry" syncable="YES">
+        <attribute name="lastUpdated" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="hasStates" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="StationsXState" inverseName="belongsToCountry" inverseEntity="StationsXState" syncable="YES"/>
+    </entity>
+    <entity name="StationsXState" representedClassName=".StationsXState" syncable="YES">
+        <attribute name="stateName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="belongsToCountry" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StationsXCountry" inverseName="hasStates" inverseEntity="StationsXCountry" syncable="YES"/>
+        <relationship name="hasStation" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PetrolStation" inverseName="belongsToState" inverseEntity="PetrolStation" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="PetrolStation" positionX="-65" positionY="-462" width="128" height="388"/>
+        <element name="StationsXCountry" positionX="-369" positionY="-27" width="128" height="88"/>
+        <element name="StationsXState" positionX="-335" positionY="-270" width="128" height="88"/>
+    </elements>
+</model>
