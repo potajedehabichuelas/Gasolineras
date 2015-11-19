@@ -78,5 +78,9 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Necesitamos saber tu position para guiarte!</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Necesitamos saber tu position para guiarte!</string>
 </dict>
 </plist>

@@ -37,7 +37,7 @@ class HttpHelper: NSObject {
                 //Signal semaphore
                 dispatch_semaphore_signal(semaphore);
                 
-            }, failure: { (operation: AFHTTPRequestOperation!,error: NSError!) in
+            }, failure: { (operation: AFHTTPRequestOperation?,error: NSError!) in
                 print("[HTTPHelper Error]: " + error.localizedDescription);
                 //Maybe check for internet connection ?
                 
@@ -82,7 +82,7 @@ class HttpHelper: NSObject {
                 //Signal semaphore
                 dispatch_semaphore_signal(semaphore);
                 
-            },failure: { (operation: AFHTTPRequestOperation!,error: NSError!) in
+            },failure: { (operation: AFHTTPRequestOperation?,error: NSError!) in
                 print("[HTTPHelper Error]: " + error.localizedDescription);
                 //Maybe check for internet connection ?
                 

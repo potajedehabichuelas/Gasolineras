@@ -7,36 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3353CAFF1BFCA46E0009C997 /* PetrolStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3353CAFC1BFCA46E0009C997 /* PetrolStation.swift */; };
+		3353CB001BFCA46E0009C997 /* StationsXCountry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3353CAFD1BFCA46E0009C997 /* StationsXCountry.swift */; };
+		3353CB011BFCA46E0009C997 /* StationsXState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3353CAFE1BFCA46E0009C997 /* StationsXState.swift */; };
+		3353CB051BFCA4910009C997 /* HttpHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3353CB031BFCA4910009C997 /* HttpHelper.swift */; };
+		3353CB061BFCA4910009C997 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3353CB041BFCA4910009C997 /* NetworkManager.swift */; };
+		3353CB0A1BFCA4AA0009C997 /* CountryStations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3353CB081BFCA4AA0009C997 /* CountryStations.swift */; };
+		3353CB0B1BFCA4AA0009C997 /* Gasolinera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3353CB091BFCA4AA0009C997 /* Gasolinera.swift */; };
+		3353CB0E1BFCA4BB0009C997 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3353CB0D1BFCA4BB0009C997 /* Storage.swift */; };
+		3353CB131BFCA4D70009C997 /* GasMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3353CB111BFCA4D70009C997 /* GasMapViewController.swift */; };
+		3353CB161BFCA6780009C997 /* GasTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3353CB151BFCA6780009C997 /* GasTableViewCell.swift */; };
+		3353CB181BFCA6DF0009C997 /* GasolinerasTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3353CB171BFCA6DF0009C997 /* GasolinerasTableViewController.swift */; };
+		3353CB1A1BFCAFD30009C997 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3353CB191BFCAFD30009C997 /* MapKit.framework */; };
 		33BAE8931BE7BA0500118DCA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33BAE8911BE7BA0500118DCA /* Main.storyboard */; };
 		33BAE8951BE7BA0500118DCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33BAE8941BE7BA0500118DCA /* Assets.xcassets */; };
 		33BAE8981BE7BA0500118DCA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33BAE8961BE7BA0500118DCA /* LaunchScreen.storyboard */; };
 		33BAE8A31BE7BA0600118DCA /* StorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BAE8A21BE7BA0600118DCA /* StorageTests.swift */; };
 		33BAE8AE1BE7BA0600118DCA /* GasolinerasUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BAE8AD1BE7BA0600118DCA /* GasolinerasUITests.swift */; };
-		33BAE8C01BE7BA7900118DCA /* CoreData Entities in Resources */ = {isa = PBXBuildFile; fileRef = 33BAE8BB1BE7BA7900118DCA /* CoreData Entities */; };
-		33BAE8C11BE7BA7900118DCA /* Network in Resources */ = {isa = PBXBuildFile; fileRef = 33BAE8BC1BE7BA7900118DCA /* Network */; };
-		33BAE8C21BE7BA7900118DCA /* Objects in Resources */ = {isa = PBXBuildFile; fileRef = 33BAE8BD1BE7BA7900118DCA /* Objects */; };
-		33BAE8C31BE7BA7900118DCA /* Storage in Resources */ = {isa = PBXBuildFile; fileRef = 33BAE8BE1BE7BA7900118DCA /* Storage */; };
-		33BAE8C41BE7BA7900118DCA /* VC in Resources */ = {isa = PBXBuildFile; fileRef = 33BAE8BF1BE7BA7900118DCA /* VC */; };
-		33BAE8D41BE7BDAB00118DCA /* PetrolStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BAE8D11BE7BDAB00118DCA /* PetrolStation.swift */; };
-		33BAE8D51BE7BDAB00118DCA /* StationsXCountry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BAE8D21BE7BDAB00118DCA /* StationsXCountry.swift */; };
-		33BAE8D61BE7BDAB00118DCA /* StationsXState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BAE8D31BE7BDAB00118DCA /* StationsXState.swift */; };
-		33BAE8D91BE7BDB200118DCA /* CountryStations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BAE8D71BE7BDB200118DCA /* CountryStations.swift */; };
-		33BAE8DA1BE7BDB200118DCA /* Gasolinera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BAE8D81BE7BDB200118DCA /* Gasolinera.swift */; };
-		33BAE8DD1BE7BDBE00118DCA /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BAE8DB1BE7BDBE00118DCA /* FirstViewController.swift */; };
-		33BAE8DE1BE7BDBE00118DCA /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BAE8DC1BE7BDBE00118DCA /* SecondViewController.swift */; };
-		33BAE8E01BE7BDC600118DCA /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BAE8DF1BE7BDC600118DCA /* Storage.swift */; };
-		33BAE8E41BE7BDD400118DCA /* HttpHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BAE8E21BE7BDD400118DCA /* HttpHelper.swift */; };
-		33BAE8E51BE7BDD400118DCA /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BAE8E31BE7BDD400118DCA /* NetworkManager.swift */; };
 		33BAE8F01BE7DA3D00118DCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BAE8ED1BE7DA3D00118DCA /* AppDelegate.swift */; };
 		33BAE8F51BE7DADD00118DCA /* Gasolineras.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 33BAE8F31BE7DADD00118DCA /* Gasolineras.xcdatamodeld */; };
-		33BAE8F61BE7DDB800118DCA /* HttpHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BAE8E21BE7BDD400118DCA /* HttpHelper.swift */; };
-		33BAE8F71BE7DDB800118DCA /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BAE8E31BE7BDD400118DCA /* NetworkManager.swift */; };
-		33BAE8F81BE7DDB800118DCA /* PetrolStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BAE8D11BE7BDAB00118DCA /* PetrolStation.swift */; };
-		33BAE8F91BE7DDB800118DCA /* StationsXCountry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BAE8D21BE7BDAB00118DCA /* StationsXCountry.swift */; };
-		33BAE8FA1BE7DDB800118DCA /* StationsXState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BAE8D31BE7BDAB00118DCA /* StationsXState.swift */; };
-		33BAE8FB1BE7DDB800118DCA /* CountryStations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BAE8D71BE7BDB200118DCA /* CountryStations.swift */; };
-		33BAE8FC1BE7DDB800118DCA /* Gasolinera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BAE8D81BE7BDB200118DCA /* Gasolinera.swift */; };
-		33BAE8FD1BE7DDB800118DCA /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BAE8DF1BE7BDC600118DCA /* Storage.swift */; };
 		94CA144606B98F98B888B08D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7693144179439A229C467281 /* libPods.a */; };
 		950386A382B84B1C093E0660 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7693144179439A229C467281 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -59,6 +48,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3353CAFC1BFCA46E0009C997 /* PetrolStation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PetrolStation.swift; path = "CoreData Entities/PetrolStation.swift"; sourceTree = "<group>"; };
+		3353CAFD1BFCA46E0009C997 /* StationsXCountry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StationsXCountry.swift; path = "CoreData Entities/StationsXCountry.swift"; sourceTree = "<group>"; };
+		3353CAFE1BFCA46E0009C997 /* StationsXState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StationsXState.swift; path = "CoreData Entities/StationsXState.swift"; sourceTree = "<group>"; };
+		3353CB031BFCA4910009C997 /* HttpHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HttpHelper.swift; path = Network/HttpHelper.swift; sourceTree = "<group>"; };
+		3353CB041BFCA4910009C997 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkManager.swift; path = Network/NetworkManager.swift; sourceTree = "<group>"; };
+		3353CB081BFCA4AA0009C997 /* CountryStations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CountryStations.swift; path = Objects/CountryStations.swift; sourceTree = "<group>"; };
+		3353CB091BFCA4AA0009C997 /* Gasolinera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Gasolinera.swift; path = Objects/Gasolinera.swift; sourceTree = "<group>"; };
+		3353CB0D1BFCA4BB0009C997 /* Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Storage.swift; path = Storage/Storage.swift; sourceTree = "<group>"; };
+		3353CB111BFCA4D70009C997 /* GasMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GasMapViewController.swift; path = VC/GasMapViewController.swift; sourceTree = "<group>"; };
+		3353CB151BFCA6780009C997 /* GasTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GasTableViewCell.swift; path = "Other Classes/GasTableViewCell.swift"; sourceTree = "<group>"; };
+		3353CB171BFCA6DF0009C997 /* GasolinerasTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GasolinerasTableViewController.swift; path = VC/GasolinerasTableViewController.swift; sourceTree = "<group>"; };
+		3353CB191BFCAFD30009C997 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		33BAE8881BE7BA0500118DCA /* Gasolineras.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gasolineras.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33BAE8921BE7BA0500118DCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		33BAE8941BE7BA0500118DCA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -69,21 +70,6 @@
 		33BAE8A91BE7BA0600118DCA /* GasolinerasUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GasolinerasUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		33BAE8AD1BE7BA0600118DCA /* GasolinerasUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasolinerasUITests.swift; sourceTree = "<group>"; };
 		33BAE8AF1BE7BA0600118DCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		33BAE8BB1BE7BA7900118DCA /* CoreData Entities */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "CoreData Entities"; path = "/Users/Dani/Desktop/new Gas/Gasolineras/Gasolineras/CoreData Entities"; sourceTree = "<absolute>"; };
-		33BAE8BC1BE7BA7900118DCA /* Network */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Network; path = "/Users/Dani/Desktop/new Gas/Gasolineras/Gasolineras/Network"; sourceTree = "<absolute>"; };
-		33BAE8BD1BE7BA7900118DCA /* Objects */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Objects; path = "/Users/Dani/Desktop/new Gas/Gasolineras/Gasolineras/Objects"; sourceTree = "<absolute>"; };
-		33BAE8BE1BE7BA7900118DCA /* Storage */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Storage; path = "/Users/Dani/Desktop/new Gas/Gasolineras/Gasolineras/Storage"; sourceTree = "<absolute>"; };
-		33BAE8BF1BE7BA7900118DCA /* VC */ = {isa = PBXFileReference; lastKnownFileType = folder; name = VC; path = "/Users/Dani/Desktop/new Gas/Gasolineras/Gasolineras/VC"; sourceTree = "<absolute>"; };
-		33BAE8D11BE7BDAB00118DCA /* PetrolStation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PetrolStation.swift; path = "CoreData Entities/PetrolStation.swift"; sourceTree = "<group>"; };
-		33BAE8D21BE7BDAB00118DCA /* StationsXCountry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StationsXCountry.swift; path = "CoreData Entities/StationsXCountry.swift"; sourceTree = "<group>"; };
-		33BAE8D31BE7BDAB00118DCA /* StationsXState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StationsXState.swift; path = "CoreData Entities/StationsXState.swift"; sourceTree = "<group>"; };
-		33BAE8D71BE7BDB200118DCA /* CountryStations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CountryStations.swift; path = Objects/CountryStations.swift; sourceTree = "<group>"; };
-		33BAE8D81BE7BDB200118DCA /* Gasolinera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Gasolinera.swift; path = Objects/Gasolinera.swift; sourceTree = "<group>"; };
-		33BAE8DB1BE7BDBE00118DCA /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirstViewController.swift; path = VC/FirstViewController.swift; sourceTree = "<group>"; };
-		33BAE8DC1BE7BDBE00118DCA /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SecondViewController.swift; path = VC/SecondViewController.swift; sourceTree = "<group>"; };
-		33BAE8DF1BE7BDC600118DCA /* Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Storage.swift; path = Storage/Storage.swift; sourceTree = "<group>"; };
-		33BAE8E21BE7BDD400118DCA /* HttpHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HttpHelper.swift; path = Network/HttpHelper.swift; sourceTree = "<group>"; };
-		33BAE8E31BE7BDD400118DCA /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkManager.swift; path = Network/NetworkManager.swift; sourceTree = "<group>"; };
 		33BAE8ED1BE7DA3D00118DCA /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "Supporting Files/AppDelegate.swift"; sourceTree = "<group>"; };
 		33BAE8EE1BE7DA3D00118DCA /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Bridging-Header.h"; path = "Supporting Files/Bridging-Header.h"; sourceTree = "<group>"; };
 		33BAE8EF1BE7DA3D00118DCA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "Supporting Files/Info.plist"; sourceTree = "<group>"; };
@@ -98,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3353CB1A1BFCAFD30009C997 /* MapKit.framework in Frameworks */,
 				950386A382B84B1C093E0660 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -132,9 +119,63 @@
 		0F975A776700655B763EA9BF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3353CB191BFCAFD30009C997 /* MapKit.framework */,
 				7693144179439A229C467281 /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3353CAFB1BFCA45B0009C997 /* Core Data Entities */ = {
+			isa = PBXGroup;
+			children = (
+				3353CAFC1BFCA46E0009C997 /* PetrolStation.swift */,
+				3353CAFD1BFCA46E0009C997 /* StationsXCountry.swift */,
+				3353CAFE1BFCA46E0009C997 /* StationsXState.swift */,
+			);
+			name = "Core Data Entities";
+			sourceTree = "<group>";
+		};
+		3353CB021BFCA4850009C997 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				3353CB031BFCA4910009C997 /* HttpHelper.swift */,
+				3353CB041BFCA4910009C997 /* NetworkManager.swift */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
+		3353CB071BFCA49C0009C997 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				3353CB081BFCA4AA0009C997 /* CountryStations.swift */,
+				3353CB091BFCA4AA0009C997 /* Gasolinera.swift */,
+			);
+			name = Objects;
+			sourceTree = "<group>";
+		};
+		3353CB0C1BFCA4B10009C997 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				3353CB0D1BFCA4BB0009C997 /* Storage.swift */,
+			);
+			name = Storage;
+			sourceTree = "<group>";
+		};
+		3353CB0F1BFCA4CD0009C997 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				3353CB111BFCA4D70009C997 /* GasMapViewController.swift */,
+				3353CB171BFCA6DF0009C997 /* GasolinerasTableViewController.swift */,
+			);
+			name = VC;
+			sourceTree = "<group>";
+		};
+		3353CB141BFCA6330009C997 /* Other Classes */ = {
+			isa = PBXGroup;
+			children = (
+				3353CB151BFCA6780009C997 /* GasTableViewCell.swift */,
+			);
+			name = "Other Classes";
 			sourceTree = "<group>";
 		};
 		33BAE87F1BE7BA0500118DCA = {
@@ -162,11 +203,12 @@
 		33BAE88A1BE7BA0500118DCA /* Gasolineras */ = {
 			isa = PBXGroup;
 			children = (
-				33BAE8E11BE7BDC900118DCA /* Network */,
-				33BAE8D01BE7BD9E00118DCA /* Core Data Entities */,
-				33BAE8CF1BE7BD9800118DCA /* Objects */,
-				33BAE8CE1BE7BD9000118DCA /* Storage */,
-				33BAE8CD1BE7BD8B00118DCA /* VC */,
+				3353CB141BFCA6330009C997 /* Other Classes */,
+				3353CAFB1BFCA45B0009C997 /* Core Data Entities */,
+				3353CB021BFCA4850009C997 /* Network */,
+				3353CB071BFCA49C0009C997 /* Objects */,
+				3353CB0C1BFCA4B10009C997 /* Storage */,
+				3353CB0F1BFCA4CD0009C997 /* VC */,
 				33BAE8911BE7BA0500118DCA /* Main.storyboard */,
 				33BAE8941BE7BA0500118DCA /* Assets.xcassets */,
 				33BAE8961BE7BA0500118DCA /* LaunchScreen.storyboard */,
@@ -191,51 +233,6 @@
 				33BAE8AF1BE7BA0600118DCA /* Info.plist */,
 			);
 			path = GasolinerasUITests;
-			sourceTree = "<group>";
-		};
-		33BAE8CD1BE7BD8B00118DCA /* VC */ = {
-			isa = PBXGroup;
-			children = (
-				33BAE8DB1BE7BDBE00118DCA /* FirstViewController.swift */,
-				33BAE8DC1BE7BDBE00118DCA /* SecondViewController.swift */,
-			);
-			name = VC;
-			sourceTree = "<group>";
-		};
-		33BAE8CE1BE7BD9000118DCA /* Storage */ = {
-			isa = PBXGroup;
-			children = (
-				33BAE8DF1BE7BDC600118DCA /* Storage.swift */,
-			);
-			name = Storage;
-			sourceTree = "<group>";
-		};
-		33BAE8CF1BE7BD9800118DCA /* Objects */ = {
-			isa = PBXGroup;
-			children = (
-				33BAE8D71BE7BDB200118DCA /* CountryStations.swift */,
-				33BAE8D81BE7BDB200118DCA /* Gasolinera.swift */,
-			);
-			name = Objects;
-			sourceTree = "<group>";
-		};
-		33BAE8D01BE7BD9E00118DCA /* Core Data Entities */ = {
-			isa = PBXGroup;
-			children = (
-				33BAE8D11BE7BDAB00118DCA /* PetrolStation.swift */,
-				33BAE8D21BE7BDAB00118DCA /* StationsXCountry.swift */,
-				33BAE8D31BE7BDAB00118DCA /* StationsXState.swift */,
-			);
-			name = "Core Data Entities";
-			sourceTree = "<group>";
-		};
-		33BAE8E11BE7BDC900118DCA /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				33BAE8E21BE7BDD400118DCA /* HttpHelper.swift */,
-				33BAE8E31BE7BDD400118DCA /* NetworkManager.swift */,
-			);
-			name = Network;
 			sourceTree = "<group>";
 		};
 		33BAE8F21BE7DA4000118DCA /* Supporting Files */ = {
@@ -360,13 +357,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				33BAE8981BE7BA0500118DCA /* LaunchScreen.storyboard in Resources */,
-				33BAE8C01BE7BA7900118DCA /* CoreData Entities in Resources */,
-				33BAE8C31BE7BA7900118DCA /* Storage in Resources */,
 				33BAE8951BE7BA0500118DCA /* Assets.xcassets in Resources */,
-				33BAE8C21BE7BA7900118DCA /* Objects in Resources */,
 				33BAE8931BE7BA0500118DCA /* Main.storyboard in Resources */,
-				33BAE8C11BE7BA7900118DCA /* Network in Resources */,
-				33BAE8C41BE7BA7900118DCA /* VC in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,18 +476,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3353CB131BFCA4D70009C997 /* GasMapViewController.swift in Sources */,
+				3353CB161BFCA6780009C997 /* GasTableViewCell.swift in Sources */,
 				33BAE8F01BE7DA3D00118DCA /* AppDelegate.swift in Sources */,
-				33BAE8E51BE7BDD400118DCA /* NetworkManager.swift in Sources */,
-				33BAE8D41BE7BDAB00118DCA /* PetrolStation.swift in Sources */,
-				33BAE8DA1BE7BDB200118DCA /* Gasolinera.swift in Sources */,
-				33BAE8DE1BE7BDBE00118DCA /* SecondViewController.swift in Sources */,
-				33BAE8DD1BE7BDBE00118DCA /* FirstViewController.swift in Sources */,
-				33BAE8D61BE7BDAB00118DCA /* StationsXState.swift in Sources */,
-				33BAE8D51BE7BDAB00118DCA /* StationsXCountry.swift in Sources */,
+				3353CB0A1BFCA4AA0009C997 /* CountryStations.swift in Sources */,
+				3353CAFF1BFCA46E0009C997 /* PetrolStation.swift in Sources */,
+				3353CB011BFCA46E0009C997 /* StationsXState.swift in Sources */,
+				3353CB061BFCA4910009C997 /* NetworkManager.swift in Sources */,
+				3353CB001BFCA46E0009C997 /* StationsXCountry.swift in Sources */,
+				3353CB181BFCA6DF0009C997 /* GasolinerasTableViewController.swift in Sources */,
+				3353CB0B1BFCA4AA0009C997 /* Gasolinera.swift in Sources */,
 				33BAE8F51BE7DADD00118DCA /* Gasolineras.xcdatamodeld in Sources */,
-				33BAE8D91BE7BDB200118DCA /* CountryStations.swift in Sources */,
-				33BAE8E41BE7BDD400118DCA /* HttpHelper.swift in Sources */,
-				33BAE8E01BE7BDC600118DCA /* Storage.swift in Sources */,
+				3353CB051BFCA4910009C997 /* HttpHelper.swift in Sources */,
+				3353CB0E1BFCA4BB0009C997 /* Storage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,15 +496,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				33BAE8FC1BE7DDB800118DCA /* Gasolinera.swift in Sources */,
-				33BAE8F71BE7DDB800118DCA /* NetworkManager.swift in Sources */,
 				33BAE8A31BE7BA0600118DCA /* StorageTests.swift in Sources */,
-				33BAE8F81BE7DDB800118DCA /* PetrolStation.swift in Sources */,
-				33BAE8F91BE7DDB800118DCA /* StationsXCountry.swift in Sources */,
-				33BAE8FD1BE7DDB800118DCA /* Storage.swift in Sources */,
-				33BAE8F61BE7DDB800118DCA /* HttpHelper.swift in Sources */,
-				33BAE8FA1BE7DDB800118DCA /* StationsXState.swift in Sources */,
-				33BAE8FB1BE7DDB800118DCA /* CountryStations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -578,6 +563,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -623,6 +609,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -648,6 +635,7 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/Gasolineras/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Xquare.Gasolineras;
@@ -664,6 +652,7 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/Gasolineras/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Xquare.Gasolineras;
