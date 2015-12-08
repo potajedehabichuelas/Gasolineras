@@ -94,6 +94,37 @@ class Gasolinera: NSObject {
         super.init()
     }
     
+    
+    func copyWithZone(zone: NSZone) -> AnyObject {
+        return self.dynamicType.init(self)
+    }
+    
+    required init(_ object: Gasolinera) {
+        //Init the model based on the one given
+        margen = object.margen;
+        rotulo = object.rotulo;
+        remision = object.remision
+        horario = object.tipoVenta
+        
+        latitud = object.latitud
+        longitud = object.longitud
+        localidad = object.localidad
+        municipio = object.municipio
+        provincia = object.provincia
+        cp = object.cp
+        direccion = object.direccion
+        
+        biodiesel = object.biodiesel
+        bioetanol = object.bioetanol
+        gasNaturalComprimido = object.gasNaturalComprimido
+        gasoleoA = object.gasoleoA
+        nuevoGasoleoA = object.nuevoGasoleoA
+        gasolina95 = object.gasolina95
+        gasolina98 = object.gasolina98
+        esterMetilico = object.esterMetilico
+    }
+
+    
     // MARK : Class Functions
     
     class func gasolineraFromJSON(gasDict: NSDictionary) -> Gasolinera {

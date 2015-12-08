@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-class PetrolStation : NSManagedObject {
+class PetrolStation : NSManagedObject, NSCopying {
 
     @NSManaged var bioalcohol: NSNumber
     @NSManaged var biodiesel: NSNumber
@@ -34,5 +34,9 @@ class PetrolStation : NSManagedObject {
     @NSManaged var rotulo: String
     @NSManaged var tipoVenta: String
     @NSManaged var belongsToState: StationsXState
+    
+    func copyWithZone(zone: NSZone) -> AnyObject {
+        return PetrolStation()
+    }
 
 }

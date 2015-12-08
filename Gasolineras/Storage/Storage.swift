@@ -8,9 +8,27 @@
 
 import UIKit
 import CoreData
+import CoreLocation
 
 //For filter configuration
 private let STORAGE_DEFAULT_SETTINGS : String = "defaultSettings";
+
+let DIESEL : String = "Diesel";
+let DIESELPLUS : String = "Diesel Plus";
+let GAS95 : String = "Gasolina 95";
+let GAS98 : String = "Gasolina 98";
+
+let DISTANCE5 : String = "5 Km";
+let DISTANCE10 : String = "10 Km";
+let DISTANCE20 : String = "20 Km";
+let DISTANCE50 : String = "50 Km";
+
+//Keys for default settings
+let STORAGE_DISTANCE_SETTINGS : String = "distanceSettings";
+let STORAGE_SEARCH_SETTINGS : String = "searchSettings";
+
+let STORAGE_LAST_LAT_SETTINGS : String = "lastLatSettings";
+let STORAGE_LAST_LON_SETTINGS : String = "lastLonSettings";
 
 //Main folder name
 private let STORAGE_MAIN_FOLDER_NAME : String = "PetrolStations";
@@ -24,9 +42,10 @@ class Storage: NSObject {
     //Singleton
     static let sharedInstance = Storage()
     
-    var stations = [NSManagedObject]()
+    //Variable that holds the last retrieval on stations
+    var gasStations : Array<Gasolinera> = Array();
     
-    var settings : NSDictionary = Storage.retrieveSettings();
+    var settings : NSMutableDictionary = Storage.retrieveSettings();
     
     /*class func getCountryStationsArrayForCountry(countryName : String) -> CountryStations
     {
@@ -99,31 +118,29 @@ class Storage: NSObject {
         return fullPath
     }*/
     
-    class func retrieveSettings() -> NSDictionary
+    
+    class func retrieveSettings() -> NSMutableDictionary
     {
-        /*var historyArray  = NSKeyedUnarchiver.unarchiveObjectWithFile(self.getHistoryArrayPath()) as! Array<Definition>?
-        
-        if historyArray != nil {
-            return historyArray!
+        if let data = NSUserDefaults.standardUserDefaults().objectForKey(STORAGE_DEFAULT_SETTINGS) as? NSData {
+            let set : NSMutableDictionary = NSKeyedUnarchiver.unarchiveObjectWithData(data) as! NSMutableDictionary
+            return set;
         } else {
-            return Array();
-        }*/
-        
-        return NSDictionary()
-        
+            //No settings, recreate dictionary
+            let set : NSMutableDictionary = [STORAGE_SEARCH_SETTINGS : DIESEL, STORAGE_DISTANCE_SETTINGS : DISTANCE5, STORAGE_LAST_LAT_SETTINGS : 0, STORAGE_LAST_LON_SETTINGS : 0]
+            return set;
+        }
     }
     
-    class func saveSettings(filterDict: NSDictionary)
+
+    func saveSettings(setDict: NSMutableDictionary)
     {
-        /*var path : String = self.getStarredArrayPath()
-        
-        if NSKeyedArchiver.archiveRootObject(starredArray, toFile: path) {
-            println("Success saving starred words file")
-        } else {
-            println("Unable to write starred words file")
-        }*/
+        //Update the class var
+        Storage.sharedInstance.settings = setDict;
+        //Save to defaults object
+        NSUserDefaults.standardUserDefaults().setObject(NSKeyedArchiver.archivedDataWithRootObject(setDict), forKey: STORAGE_DEFAULT_SETTINGS)
     }
-    
+
+
     class func saveCountryStations(stationsForCountry: CountryStations)
     {
         
@@ -249,8 +266,7 @@ class Storage: NSObject {
                 
                 //add the entity to the array to avoid recreating it
                 statesEntities.append(stateEntity)
-                
-                print(station.provincia)
+
             }
             
         } // End of for
@@ -281,22 +297,37 @@ class Storage: NSObject {
     }
     
     //Returns an array of Stations for a condition given, i.e distance
+    //It also sets the instance variable gasStations to the last retrieved stations to avoid reloading
+    //the same data again and again
     
-    class func getPetrolStations(lat : Double, long : Double, range : Double) -> Array<PetrolStation>? {
+    func getPetrolStations(lat : Double, long : Double, range : Double) -> Array<Gasolinera>? {
         
         
         let requestStation = NSFetchRequest(entityName: STATIONS_ENTITY)
         requestStation.predicate = NSPredicate(format: "provincia LIKE 'GRANADA'")
         
         do {
-            let fetchResults = try sharedInstance.managedObjectContext.executeFetchRequest(requestStation) as? [PetrolStation]
+            let fetchResults = try self.managedObjectContext.executeFetchRequest(requestStation) as? [PetrolStation]
             
             if (fetchResults != nil) {
+                
+                let userLoc : CLLocation = CLLocation.init(latitude: lat, longitude: long)
+                var filteredArray : Array<PetrolStation> = Array()
+                
                 for state : PetrolStation in fetchResults! {
-                    print(state.provincia)
-                    print(state.rotulo)
+                    //Filter gas stations by distance
+                    let stationLoc : CLLocation = CLLocation.init(latitude: state.latitud.doubleValue, longitude: state.longitud.doubleValue)
+                    let distanceToUser = userLoc.distanceFromLocation(stationLoc)
+                    
+                    if distanceToUser <= range {
+                        filteredArray.append(state);
+                    }
                 }
-                return fetchResults
+                
+                //Set the instance variable so it holds the last items retrieved
+                gasStations = Storage.stationEntityToObject(filteredArray)
+                
+                return gasStations
                 
             } else {
                 return nil
@@ -311,12 +342,39 @@ class Storage: NSObject {
     
     //Fills a Gasolinera object from a Petrol station entity from Core Data
     
-    class func stationEntityToObject(stationDBObject : PetrolStation) -> Gasolinera {
+    class func stationEntityToObject(stationsDB : Array<PetrolStation>) -> Array<Gasolinera> {
         
-        let estacion : Gasolinera = Gasolinera();
+        var estaciones : Array<Gasolinera> =  Array<Gasolinera>();
+        
+        //Copy values to the object
+        for object in stationsDB {
+            let station = Gasolinera();
+            station.margen = object.margen;
+            station.rotulo = object.rotulo;
+            station.remision = object.remision
+            station.horario = object.tipoVenta
+            
+            station.latitud = object.latitud.doubleValue
+            station.longitud = object.longitud.doubleValue
+            station.localidad = object.localidad
+            station.municipio = object.municipio
+            station.provincia = object.provincia
+            station.cp = object.cp
+            station.direccion = object.direccion
+            
+            station.biodiesel = object.biodiesel.doubleValue
+            station.bioetanol = object.bioetanol.doubleValue
+            station.gasNaturalComprimido = object.gasNatural.doubleValue
+            station.gasoleoA = object.gasoleoA.doubleValue
+            station.nuevoGasoleoA = object.nuevoGasoleoA.doubleValue
+            station.gasolina95 = object.gasolina95.doubleValue
+            station.gasolina98 = object.gasolina98.doubleValue
+            station.esterMetilico = object.esterMetilico.doubleValue
+            
+            estaciones.append(station)
+        }
     
-    
-        return estacion;
+        return estaciones;
     }
     
     //Fills a Petrol station entity from Core Data to a Gasolinera Object

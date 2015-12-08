@@ -22,15 +22,18 @@ PODS:
     - AFNetworking/NSURLSession
   - Google-Mobile-Ads-SDK (7.5.2)
   - MBProgressHUD (0.9.1)
+  - SWRevealViewController (2.3.0)
 
 DEPENDENCIES:
   - AFNetworking
-  - Google-Mobile-Ads-SDK (~> 7.0)
-  - MBProgressHUD (~> 0.9.1)
+  - Google-Mobile-Ads-SDK
+  - MBProgressHUD
+  - SWRevealViewController
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   Google-Mobile-Ads-SDK: 24a8ddfc0bcfec281960c5d88f75327df0d86b00
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
+  SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
 
 COCOAPODS: 0.39.0

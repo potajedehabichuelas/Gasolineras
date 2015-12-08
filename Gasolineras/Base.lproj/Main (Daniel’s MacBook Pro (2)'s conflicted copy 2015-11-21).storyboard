@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dy5-7F-PWr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dy5-7F-PWr">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
@@ -15,7 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
-                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GasCell" rowHeight="100" id="ZbT-Jz-mJo" customClass="GasTableViewCell" customModule="Gasolineras" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="113.5" width="600" height="100"/>
@@ -33,12 +33,9 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="29" id="ebJ-Ic-Wzf"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="19"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="heightClass=regular-widthClass=compact">
-                                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="18"/>
-                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-- Km" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hCD-uZ-eol">
                                                     <rect key="frame" x="471" y="9" width="105" height="21"/>
@@ -48,11 +45,11 @@
                                                         <constraint firstAttribute="width" constant="105" id="9a5-2R-12P"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gasolina 95" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7wb-PY-XdE">
-                                                    <rect key="frame" x="48" y="38" width="93" height="23.5"/>
+                                                    <rect key="frame" x="44" y="38" width="93" height="23.5"/>
                                                     <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="23.5" id="LBI-n3-Fns"/>
@@ -66,7 +63,7 @@
                                                     </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lw7-aU-sb5">
-                                                    <rect key="frame" x="180.5" y="64" width="93" height="23.5"/>
+                                                    <rect key="frame" x="180" y="64" width="93" height="23.5"/>
                                                     <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="93" id="G9X-km-NdE"/>
@@ -96,7 +93,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gasolina 98" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jKq-9Q-jaT">
-                                                    <rect key="frame" x="184.5" y="38" width="93" height="23.5"/>
+                                                    <rect key="frame" x="180" y="38" width="93" height="23.5"/>
                                                     <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="93" id="jXF-KU-X2K"/>
@@ -159,14 +156,14 @@
                                                 <constraint firstItem="19V-RR-3zm" firstAttribute="top" secondItem="nnz-l8-q8s" secondAttribute="top" constant="5" id="HWw-dV-Iix"/>
                                                 <constraint firstAttribute="trailing" secondItem="flS-wy-bsC" secondAttribute="trailing" multiplier="5/3" constant="-100" id="NR5-jB-0Bg"/>
                                                 <constraint firstItem="Lw7-aU-sb5" firstAttribute="top" secondItem="jKq-9Q-jaT" secondAttribute="bottom" constant="2.5" id="QZq-Fr-8TX"/>
-                                                <constraint firstAttribute="trailing" secondItem="7wb-PY-XdE" secondAttribute="trailing" multiplier="5/1" constant="-120" id="TOA-8q-dKi"/>
+                                                <constraint firstAttribute="trailing" secondItem="7wb-PY-XdE" secondAttribute="trailing" multiplier="5/1" constant="-100" id="TOA-8q-dKi"/>
                                                 <constraint firstItem="pVU-xV-rad" firstAttribute="centerY" secondItem="nnz-l8-q8s" secondAttribute="centerY" id="VhS-iT-tA7"/>
                                                 <constraint firstItem="N6g-NT-6HC" firstAttribute="top" secondItem="RLJ-Af-kep" secondAttribute="bottom" constant="2.5" id="auP-KX-GBy"/>
                                                 <constraint firstItem="19V-RR-3zm" firstAttribute="leading" secondItem="nnz-l8-q8s" secondAttribute="leading" constant="15" id="df5-S1-xUl"/>
                                                 <constraint firstAttribute="trailing" secondItem="q3J-rI-j5e" secondAttribute="trailing" multiplier="5/1" constant="-100" id="evy-vX-4Ei"/>
                                                 <constraint firstAttribute="trailing" secondItem="N6g-NT-6HC" secondAttribute="trailing" multiplier="5/4" constant="-100" id="gU0-Fh-quo"/>
                                                 <constraint firstAttribute="trailing" secondItem="RLJ-Af-kep" secondAttribute="trailing" multiplier="5/4" constant="-100" id="goi-dp-bl7"/>
-                                                <constraint firstAttribute="trailing" secondItem="jKq-9Q-jaT" secondAttribute="trailing" multiplier="5:2" constant="-110" id="ibJ-RO-KUU"/>
+                                                <constraint firstAttribute="trailing" secondItem="jKq-9Q-jaT" secondAttribute="trailing" multiplier="5:2" constant="-100" id="ibJ-RO-KUU"/>
                                                 <constraint firstItem="flS-wy-bsC" firstAttribute="top" secondItem="pVU-xV-rad" secondAttribute="bottom" constant="2.5" id="nYE-1E-QDd"/>
                                                 <constraint firstItem="jKq-9Q-jaT" firstAttribute="centerY" secondItem="nnz-l8-q8s" secondAttribute="centerY" id="ntm-cd-6FP"/>
                                                 <constraint firstItem="7wb-PY-XdE" firstAttribute="centerY" secondItem="nnz-l8-q8s" secondAttribute="centerY" id="o9L-O5-8oj"/>
@@ -193,15 +190,12 @@
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <outlet property="containerView" destination="NNF-i8-yjO" id="C7f-Hc-P2Q"/>
-                                    <outlet property="contentView" destination="NNF-i8-yjO" id="MoP-8Z-1Vl"/>
                                     <outlet property="dieselPlusPrice" destination="N6g-NT-6HC" id="h3j-PN-xAH"/>
                                     <outlet property="dieselPrice" destination="flS-wy-bsC" id="cws-ag-VTz"/>
                                     <outlet property="distanceKm" destination="hCD-uZ-eol" id="PMm-ur-bSA"/>
                                     <outlet property="gasName" destination="19V-RR-3zm" id="Dhi-pB-hvf"/>
                                     <outlet property="petrol95Price" destination="q3J-rI-j5e" id="0gV-mb-zit"/>
                                     <outlet property="petrol98Price" destination="Lw7-aU-sb5" id="GPB-UP-HwE"/>
-                                    <segue destination="8rJ-Kc-sve" kind="show" identifier="MapSegue" trigger="accessoryAction" id="UOr-ai-Ibg"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -221,7 +215,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J2q-T8-XxL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1480" y="-372"/>
+            <point key="canvasLocation" x="1527" y="-372"/>
         </scene>
         <!--Gasolineras-->
         <scene sceneID="e4L-KX-r6v">
@@ -253,7 +247,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f0Q-Om-hfd">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f0Q-Om-hfd">
                                 <rect key="frame" x="0.0" y="0.0" width="605" height="551"/>
                                 <animations/>
                                 <connections>
@@ -263,12 +257,6 @@
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="f0Q-Om-hfd" firstAttribute="top" secondItem="QS5-Rx-YEW" secondAttribute="topMargin" id="TTT-x4-aP4"/>
-                            <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="f0Q-Om-hfd" secondAttribute="bottom" id="nHF-xn-lrP"/>
-                            <constraint firstItem="f0Q-Om-hfd" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="-20" id="oCN-Cf-Y0j"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="f0Q-Om-hfd" secondAttribute="trailing" constant="-25" id="vNI-bI-ELa"/>
-                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Mapa" image="second" id="cPa-gy-q4n"/>
                     <connections>
@@ -351,182 +339,94 @@
         <!--Configuración-->
         <scene sceneID="Qdg-ZT-Rdu">
             <objects>
-                <tableViewController id="R2z-1O-FmN" customClass="SettingsTableViewController" customModule="Gasolineras" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="RTa-vw-CIy">
+                <tableViewController id="R2z-1O-FmN" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="RTa-vw-CIy">
                         <rect key="frame" x="0.0" y="0.0" width="260" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
-                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <sections>
-                            <tableViewSection headerTitle="Criterio de Búsqueda" id="fv3-Qh-Ynv">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" textLabel="97j-Kb-XZZ" style="IBUITableViewCellStyleDefault" id="x24-0R-ugC">
-                                        <rect key="frame" x="0.0" y="93.5" width="260" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="x24-0R-ugC" id="3nE-V1-89Z">
-                                            <rect key="frame" x="0.0" y="0.0" width="260" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Gasolina 95" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="97j-Kb-XZZ">
-                                                    <rect key="frame" x="15" y="0.0" width="230" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
-                                                    <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="97j-Kb-XZZ" style="IBUITableViewCellStyleDefault" id="x24-0R-ugC">
+                                <rect key="frame" x="0.0" y="93.5" width="260" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="x24-0R-ugC" id="3nE-V1-89Z">
+                                    <rect key="frame" x="0.0" y="0.0" width="260" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Gasolina 95" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="97j-Kb-XZZ">
+                                            <rect key="frame" x="15" y="0.0" width="230" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <animations/>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" textLabel="ORw-Uk-q3g" style="IBUITableViewCellStyleDefault" id="2bN-aa-am0">
-                                        <rect key="frame" x="0.0" y="137.5" width="260" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2bN-aa-am0" id="6AB-9N-abq">
-                                            <rect key="frame" x="0.0" y="0.0" width="260" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Gasolina 98" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ORw-Uk-q3g">
-                                                    <rect key="frame" x="15" y="0.0" width="230" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
-                                                    <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
+                                            <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="ORw-Uk-q3g" style="IBUITableViewCellStyleDefault" id="2bN-aa-am0">
+                                <rect key="frame" x="0.0" y="137.5" width="260" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2bN-aa-am0" id="6AB-9N-abq">
+                                    <rect key="frame" x="0.0" y="0.0" width="260" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Gasolina 98" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ORw-Uk-q3g">
+                                            <rect key="frame" x="15" y="0.0" width="230" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <animations/>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" textLabel="Ns7-n2-KSq" style="IBUITableViewCellStyleDefault" id="6sJ-mZ-Nrb">
-                                        <rect key="frame" x="0.0" y="181.5" width="260" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6sJ-mZ-Nrb" id="Bhc-h0-7rh">
-                                            <rect key="frame" x="0.0" y="0.0" width="260" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Diesel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ns7-n2-KSq">
-                                                    <rect key="frame" x="15" y="0.0" width="230" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
-                                                    <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
+                                            <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="Ns7-n2-KSq" style="IBUITableViewCellStyleDefault" id="6sJ-mZ-Nrb">
+                                <rect key="frame" x="0.0" y="181.5" width="260" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6sJ-mZ-Nrb" id="Bhc-h0-7rh">
+                                    <rect key="frame" x="0.0" y="0.0" width="260" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Diesel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ns7-n2-KSq">
+                                            <rect key="frame" x="15" y="0.0" width="230" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <animations/>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" textLabel="O2x-Xs-g5p" style="IBUITableViewCellStyleDefault" id="Zeh-nU-Uma">
-                                        <rect key="frame" x="0.0" y="225.5" width="260" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zeh-nU-Uma" id="miv-vn-Kbe">
-                                            <rect key="frame" x="0.0" y="0.0" width="260" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Diesel Plus" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="O2x-Xs-g5p">
-                                                    <rect key="frame" x="15" y="0.0" width="230" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
-                                                    <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
+                                            <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="O2x-Xs-g5p" style="IBUITableViewCellStyleDefault" id="Zeh-nU-Uma">
+                                <rect key="frame" x="0.0" y="225.5" width="260" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zeh-nU-Uma" id="miv-vn-Kbe">
+                                    <rect key="frame" x="0.0" y="0.0" width="260" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Diesel Plus" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="O2x-Xs-g5p">
+                                            <rect key="frame" x="15" y="0.0" width="230" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <animations/>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                            <tableViewSection headerTitle="Distancia de Búsqueda" id="eVR-kz-91k">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" textLabel="tDg-HL-KRy" style="IBUITableViewCellStyleDefault" id="lU5-Ug-FO3">
-                                        <rect key="frame" x="0.0" y="319.5" width="260" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lU5-Ug-FO3" id="vec-Ur-11I">
-                                            <rect key="frame" x="0.0" y="0.0" width="260" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="5 Km" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tDg-HL-KRy">
-                                                    <rect key="frame" x="15" y="0.0" width="230" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
-                                                    <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <animations/>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" textLabel="J2m-Dy-4aM" style="IBUITableViewCellStyleDefault" id="FcM-Kh-BhV">
-                                        <rect key="frame" x="0.0" y="363.5" width="260" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FcM-Kh-BhV" id="EMq-Yw-lmO">
-                                            <rect key="frame" x="0.0" y="0.0" width="260" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="10 Km" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="J2m-Dy-4aM">
-                                                    <rect key="frame" x="15" y="0.0" width="230" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
-                                                    <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <animations/>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" textLabel="Y2G-l8-jbQ" style="IBUITableViewCellStyleDefault" id="dWK-Y8-lfJ">
-                                        <rect key="frame" x="0.0" y="407.5" width="260" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dWK-Y8-lfJ" id="K5y-Gc-zqt">
-                                            <rect key="frame" x="0.0" y="0.0" width="260" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="20 Km" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Y2G-l8-jbQ">
-                                                    <rect key="frame" x="15" y="0.0" width="230" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
-                                                    <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <animations/>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" textLabel="b6k-jw-Thp" style="IBUITableViewCellStyleDefault" id="FfZ-Cq-c5x">
-                                        <rect key="frame" x="0.0" y="451.5" width="260" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FfZ-Cq-c5x" id="cFn-7i-0cg">
-                                            <rect key="frame" x="0.0" y="0.0" width="260" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="50 Km" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="b6k-jw-Thp">
-                                                    <rect key="frame" x="15" y="0.0" width="230" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
-                                                    <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <animations/>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
+                                            <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                            </tableViewCell>
+                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="R2z-1O-FmN" id="fYZ-dl-nxH"/>
                             <outlet property="delegate" destination="R2z-1O-FmN" id="oa2-AT-Q0c"/>
@@ -560,8 +460,5 @@
         <image name="second" width="30" height="30"/>
         <image name="settings.png" width="30" height="30"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="UOr-ai-Ibg"/>
-    </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

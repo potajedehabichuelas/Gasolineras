@@ -1,9 +1,9 @@
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '7.0'
 pod 'AFNetworking'
-pod 'MBProgressHUD', '~> 0.9.1'
-pod 'Google-Mobile-Ads-SDK', '~> 7.0'
-
+pod 'MBProgressHUD'
+pod 'Google-Mobile-Ads-SDK'
+pod 'SWRevealViewController'
 
 link_with 'Gasolineras', 'GasolinerasTests'
 

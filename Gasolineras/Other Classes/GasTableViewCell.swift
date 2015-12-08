@@ -10,6 +10,8 @@ import UIKit
 
 class GasTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var containerView: UIView!
+    
     @IBOutlet weak var gasName: UILabel!
     @IBOutlet weak var distanceKm: UILabel!
     

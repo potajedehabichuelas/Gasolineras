@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3309DD6F1C16671A001D4D21 /* GasAnnotationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3309DD6E1C16671A001D4D21 /* GasAnnotationView.xib */; };
+		3309DD721C166809001D4D21 /* GasAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3309DD711C166809001D4D21 /* GasAnnotationView.swift */; };
+		3309DD791C1718B8001D4D21 /* GasPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3309DD781C1718B8001D4D21 /* GasPointAnnotation.swift */; };
 		3353CAFF1BFCA46E0009C997 /* PetrolStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3353CAFC1BFCA46E0009C997 /* PetrolStation.swift */; };
 		3353CB001BFCA46E0009C997 /* StationsXCountry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3353CAFD1BFCA46E0009C997 /* StationsXCountry.swift */; };
 		3353CB011BFCA46E0009C997 /* StationsXState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3353CAFE1BFCA46E0009C997 /* StationsXState.swift */; };
@@ -19,6 +22,8 @@
 		3353CB161BFCA6780009C997 /* GasTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3353CB151BFCA6780009C997 /* GasTableViewCell.swift */; };
 		3353CB181BFCA6DF0009C997 /* GasolinerasTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3353CB171BFCA6DF0009C997 /* GasolinerasTableViewController.swift */; };
 		3353CB1A1BFCAFD30009C997 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3353CB191BFCAFD30009C997 /* MapKit.framework */; };
+		335D160E1C00B12200D5B8EC /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 335D160D1C00B12200D5B8EC /* settings@2x.png */; };
+		335D16121C02577100D5B8EC /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335D16111C02577100D5B8EC /* SettingsTableViewController.swift */; };
 		33BAE8931BE7BA0500118DCA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33BAE8911BE7BA0500118DCA /* Main.storyboard */; };
 		33BAE8951BE7BA0500118DCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33BAE8941BE7BA0500118DCA /* Assets.xcassets */; };
 		33BAE8981BE7BA0500118DCA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33BAE8961BE7BA0500118DCA /* LaunchScreen.storyboard */; };
@@ -48,6 +53,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3309DD6E1C16671A001D4D21 /* GasAnnotationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GasAnnotationView.xib; path = Xibs/GasAnnotationView.xib; sourceTree = "<group>"; };
+		3309DD711C166809001D4D21 /* GasAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GasAnnotationView.swift; path = Views/GasAnnotationView.swift; sourceTree = "<group>"; };
+		3309DD781C1718B8001D4D21 /* GasPointAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GasPointAnnotation.swift; path = "Other Classes/GasPointAnnotation.swift"; sourceTree = "<group>"; };
 		3353CAFC1BFCA46E0009C997 /* PetrolStation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PetrolStation.swift; path = "CoreData Entities/PetrolStation.swift"; sourceTree = "<group>"; };
 		3353CAFD1BFCA46E0009C997 /* StationsXCountry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StationsXCountry.swift; path = "CoreData Entities/StationsXCountry.swift"; sourceTree = "<group>"; };
 		3353CAFE1BFCA46E0009C997 /* StationsXState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StationsXState.swift; path = "CoreData Entities/StationsXState.swift"; sourceTree = "<group>"; };
@@ -60,6 +68,8 @@
 		3353CB151BFCA6780009C997 /* GasTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GasTableViewCell.swift; path = "Other Classes/GasTableViewCell.swift"; sourceTree = "<group>"; };
 		3353CB171BFCA6DF0009C997 /* GasolinerasTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GasolinerasTableViewController.swift; path = VC/GasolinerasTableViewController.swift; sourceTree = "<group>"; };
 		3353CB191BFCAFD30009C997 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		335D160D1C00B12200D5B8EC /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "settings@2x.png"; path = "Images/settings@2x.png"; sourceTree = "<group>"; };
+		335D16111C02577100D5B8EC /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsTableViewController.swift; path = VC/SettingsTableViewController.swift; sourceTree = "<group>"; };
 		33BAE8881BE7BA0500118DCA /* Gasolineras.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gasolineras.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33BAE8921BE7BA0500118DCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		33BAE8941BE7BA0500118DCA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -125,6 +135,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		3309DD6B1C1666DA001D4D21 /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				3309DD6E1C16671A001D4D21 /* GasAnnotationView.xib */,
+			);
+			name = Xibs;
+			sourceTree = "<group>";
+		};
+		3309DD701C1667E9001D4D21 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3309DD711C166809001D4D21 /* GasAnnotationView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		3353CAFB1BFCA45B0009C997 /* Core Data Entities */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +192,7 @@
 			children = (
 				3353CB111BFCA4D70009C997 /* GasMapViewController.swift */,
 				3353CB171BFCA6DF0009C997 /* GasolinerasTableViewController.swift */,
+				335D16111C02577100D5B8EC /* SettingsTableViewController.swift */,
 			);
 			name = VC;
 			sourceTree = "<group>";
@@ -174,8 +201,17 @@
 			isa = PBXGroup;
 			children = (
 				3353CB151BFCA6780009C997 /* GasTableViewCell.swift */,
+				3309DD781C1718B8001D4D21 /* GasPointAnnotation.swift */,
 			);
 			name = "Other Classes";
+			sourceTree = "<group>";
+		};
+		335D160C1C00B11000D5B8EC /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				335D160D1C00B12200D5B8EC /* settings@2x.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 		33BAE87F1BE7BA0500118DCA = {
@@ -203,6 +239,8 @@
 		33BAE88A1BE7BA0500118DCA /* Gasolineras */ = {
 			isa = PBXGroup;
 			children = (
+				3309DD701C1667E9001D4D21 /* Views */,
+				3309DD6B1C1666DA001D4D21 /* Xibs */,
 				3353CB141BFCA6330009C997 /* Other Classes */,
 				3353CAFB1BFCA45B0009C997 /* Core Data Entities */,
 				3353CB021BFCA4850009C997 /* Network */,
@@ -212,6 +250,7 @@
 				33BAE8911BE7BA0500118DCA /* Main.storyboard */,
 				33BAE8941BE7BA0500118DCA /* Assets.xcassets */,
 				33BAE8961BE7BA0500118DCA /* LaunchScreen.storyboard */,
+				335D160C1C00B11000D5B8EC /* Images */,
 				33BAE8F21BE7DA4000118DCA /* Supporting Files */,
 			);
 			path = Gasolineras;
@@ -357,8 +396,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				33BAE8981BE7BA0500118DCA /* LaunchScreen.storyboard in Resources */,
+				335D160E1C00B12200D5B8EC /* settings@2x.png in Resources */,
 				33BAE8951BE7BA0500118DCA /* Assets.xcassets in Resources */,
 				33BAE8931BE7BA0500118DCA /* Main.storyboard in Resources */,
+				3309DD6F1C16671A001D4D21 /* GasAnnotationView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,11 +518,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				3353CB131BFCA4D70009C997 /* GasMapViewController.swift in Sources */,
+				3309DD721C166809001D4D21 /* GasAnnotationView.swift in Sources */,
 				3353CB161BFCA6780009C997 /* GasTableViewCell.swift in Sources */,
+				3309DD791C1718B8001D4D21 /* GasPointAnnotation.swift in Sources */,
 				33BAE8F01BE7DA3D00118DCA /* AppDelegate.swift in Sources */,
 				3353CB0A1BFCA4AA0009C997 /* CountryStations.swift in Sources */,
 				3353CAFF1BFCA46E0009C997 /* PetrolStation.swift in Sources */,
 				3353CB011BFCA46E0009C997 /* StationsXState.swift in Sources */,
+				335D16121C02577100D5B8EC /* SettingsTableViewController.swift in Sources */,
 				3353CB061BFCA4910009C997 /* NetworkManager.swift in Sources */,
 				3353CB001BFCA46E0009C997 /* StationsXCountry.swift in Sources */,
 				3353CB181BFCA6DF0009C997 /* GasolinerasTableViewController.swift in Sources */,
