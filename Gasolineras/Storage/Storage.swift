@@ -45,6 +45,8 @@ class Storage: NSObject {
     //Variable that holds the last retrieval on stations
     var gasStations : Array<Gasolinera> = Array();
     
+    var stats : Statistics = Statistics.sharedInstance;
+    
     var settings : NSMutableDictionary = Storage.retrieveSettings();
     
     /*class func getCountryStationsArrayForCountry(countryName : String) -> CountryStations
@@ -283,6 +285,37 @@ class Storage: NSObject {
         }
     }
     
+    func checkpricesUpdated() -> Bool {
+        
+        let requestStation = NSFetchRequest(entityName: COUNTRY_STATIONS_ENTITY)
+        
+        do {
+            let fetchResults = try self.managedObjectContext.executeFetchRequest(requestStation) as? [StationsXCountry]
+            
+            if (fetchResults != nil && fetchResults?.count > 0) {
+                if let countryStation : StationsXCountry = (fetchResults?.first)! {
+                    //Compare the dates
+                    let todayDate = NSDate(timeIntervalSinceNow: 0)
+                    
+                    let calendar = NSCalendar.currentCalendar()
+                    
+                    let comps1 = calendar.components([NSCalendarUnit.Month , NSCalendarUnit.Year , NSCalendarUnit.Day], fromDate:countryStation.lastUpdated)
+                    let comps2 = calendar.components([NSCalendarUnit.Month , NSCalendarUnit.Year , NSCalendarUnit.Day], fromDate:todayDate)
+                    
+                    return (comps1.day == comps2.day) && (comps1.month == comps2.month) && (comps1.year == comps2.year)
+                } else { return false}
+                
+            } else {
+                return false
+            }
+            
+        } catch let fetchError as NSError {
+            print("Fetching Stations Error: \(fetchError.localizedDescription)")
+            return false
+        }
+        
+    }
+    
     class func deleteEverything() throws {
         //Delete the persistent store and file
         let storeCoordinator:NSPersistentStoreCoordinator = sharedInstance.persistentStoreCoordinator
@@ -304,7 +337,6 @@ class Storage: NSObject {
         
         
         let requestStation = NSFetchRequest(entityName: STATIONS_ENTITY)
-        requestStation.predicate = NSPredicate(format: "provincia LIKE 'GRANADA'")
         
         do {
             let fetchResults = try self.managedObjectContext.executeFetchRequest(requestStation) as? [PetrolStation]
@@ -314,6 +346,9 @@ class Storage: NSObject {
                 let userLoc : CLLocation = CLLocation.init(latitude: lat, longitude: long)
                 var filteredArray : Array<PetrolStation> = Array()
                 
+                //Clear the stats
+                stats.removeStats()
+                
                 for state : PetrolStation in fetchResults! {
                     //Filter gas stations by distance
                     let stationLoc : CLLocation = CLLocation.init(latitude: state.latitud.doubleValue, longitude: state.longitud.doubleValue)
@@ -321,11 +356,18 @@ class Storage: NSObject {
                     
                     if distanceToUser <= range {
                         filteredArray.append(state);
+                        stats.gas95Array.append(Double(state.gasolina95))
+                        stats.gas98Array.append(Double(state.gasolina98))
+                        stats.dieselArray.append(Double(state.gasoleoA))
+                        stats.dieselPlusArray.append(Double(state.nuevoGasoleoA))
                     }
                 }
                 
                 //Set the instance variable so it holds the last items retrieved
                 gasStations = Storage.stationEntityToObject(filteredArray)
+                
+                //Sort the stats
+                stats.calculateStats()
                 
                 return gasStations
                 

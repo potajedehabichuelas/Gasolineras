@@ -17,8 +17,6 @@ struct priceType {
 
 class GasolinerasTableViewController: UITableViewController, CLLocationManagerDelegate {
     
-    var gasArray : Array<Gasolinera> = Array();
-    
     var gasTableArray : Array<Gasolinera> = Array();
     
     var locationManager:CLLocationManager!
@@ -31,12 +29,6 @@ class GasolinerasTableViewController: UITableViewController, CLLocationManagerDe
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         self.setGasArray()
         
@@ -69,11 +61,39 @@ class GasolinerasTableViewController: UITableViewController, CLLocationManagerDe
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)) {
             // Request petrol station data if the  date is different
-            //NetworkManager.sharedInstance.requestSpanishPetrolStationData();
-            //Data and everything is now updated in the storage
-            //Reload Data (Update references, UI,...)
-            //self.tableView.reloadData()
+            if !Storage.sharedInstance.checkpricesUpdated() {
+                print("update needed")
+                dispatch_async(dispatch_get_main_queue()) {
+                    let loadingNotification = MBProgressHUD.showHUDAddedTo(self.navigationController?.view, animated: true)
+                    loadingNotification.mode = MBProgressHUDMode.Indeterminate
+                    loadingNotification.labelText = "Actualizando"
+                }
+                
+                NetworkManager.sharedInstance.requestSpanishPetrolStationData();
+                //Data and everything is now updated in the storage
+                dispatch_async(dispatch_get_main_queue()) {
+                    //Reload Data (Update references, UI,...)
+                    MBProgressHUD.hideAllHUDsForView(self.navigationController?.view, animated: true)
+                    self.showDoneAnimation()
+                    self.setGasArray()
+                    self.tableView.reloadData()
+                }
+            } else {
+                print("prices updated")
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.showDoneAnimation();
+                }
+            }
         }
+    }
+    
+    func showDoneAnimation() {
+        //Show progress hud
+        let loadingNotification = MBProgressHUD.showHUDAddedTo(self.navigationController?.view, animated: true)
+        loadingNotification.customView = UIImageView(image: UIImage(named: "37x-Checkmark@2x.png"))
+        loadingNotification.mode = MBProgressHUDMode.CustomView
+        loadingNotification.labelText = "Todo listo"
+        loadingNotification.hide(true, afterDelay: 1.0)
     }
     
     func setGasArray() {
@@ -83,8 +103,8 @@ class GasolinerasTableViewController: UITableViewController, CLLocationManagerDe
         
         let distanceRange : Double = Double(distanceStr)! * 1000
         
-        //Set the gas array
-        gasArray = Storage.sharedInstance.getPetrolStations(Storage.sharedInstance.settings.objectForKey(STORAGE_LAST_LAT_SETTINGS)!.doubleValue, long: Storage.sharedInstance.settings.objectForKey(STORAGE_LAST_LON_SETTINGS)!.doubleValue, range:distanceRange)!;
+        //Set the gas array (that was before, now we have an instance)
+        Storage.sharedInstance.getPetrolStations(Storage.sharedInstance.settings.objectForKey(STORAGE_LAST_LAT_SETTINGS)!.doubleValue, long: Storage.sharedInstance.settings.objectForKey(STORAGE_LAST_LON_SETTINGS)!.doubleValue, range:distanceRange)!;
         //Sort depending on option selected
         sortGasArray()
     }
@@ -119,7 +139,7 @@ class GasolinerasTableViewController: UITableViewController, CLLocationManagerDe
         fuelSearchType = Storage.sharedInstance.settings[STORAGE_SEARCH_SETTINGS] as! String;
         
         //Duplicate array to remove 0
-        gasTableArray = gasArray.map {$0.copy() as! Gasolinera}
+        gasTableArray = Storage.sharedInstance.gasStations.map {$0.copy() as! Gasolinera}
         
         if fuelSearchType == DIESEL {
             gasTableArray = gasTableArray.filter{$0.gasoleoA > 0}
@@ -155,6 +175,19 @@ class GasolinerasTableViewController: UITableViewController, CLLocationManagerDe
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
+    
+    func setColorForLabel(label : UILabel, percentage : Double) {
+        if percentage < 30 {
+            //Green color, cheap
+            label.textColor = UIColor(red: 0, green: 128/255, blue: 0, alpha: 1)
+        } else if percentage >= 30 && percentage < 70 {
+            //Orange normal price
+            label.textColor =  UIColor(red: 1, green: 128/255, blue: 0, alpha: 1)
+        } else {
+            //Red color, expensive
+            label.textColor = UIColor(red: 177/255, green: 0, blue: 0, alpha: 1)
+        }
+    }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
@@ -167,26 +200,41 @@ class GasolinerasTableViewController: UITableViewController, CLLocationManagerDe
         
         if petrolStation.gasoleoA != nil && petrolStation.gasoleoA > 0 {
             gasCell.dieselPrice.text = String(format: "%.3f", petrolStation.gasoleoA!)
+            //Set the colour
+            let pctg = Statistics.sharedInstance.getRangeForValue(petrolStation.gasoleoA!, fuelType: DIESEL)
+            self.setColorForLabel(gasCell.dieselPrice, percentage: pctg)
         } else {
             gasCell.dieselPrice.text = "--"
+            gasCell.dieselPrice.textColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1)
         }
         
         if petrolStation.nuevoGasoleoA != nil && petrolStation.nuevoGasoleoA > 0 {
             gasCell.dieselPlusPrice.text = String(format: "%.3f", petrolStation.nuevoGasoleoA!)
+            let pctg = Statistics.sharedInstance.getRangeForValue(petrolStation.nuevoGasoleoA!, fuelType: DIESELPLUS)
+            self.setColorForLabel(gasCell.dieselPlusPrice, percentage: pctg)
+            
         } else {
             gasCell.dieselPlusPrice.text = "--"
+            gasCell.dieselPlusPrice.textColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1)
         }
         
         if petrolStation.gasolina95 != nil && petrolStation.gasolina95 > 0 {
             gasCell.petrol95Price.text = String(format: "%.3f", petrolStation.gasolina95!)
+            
+            let pctg = Statistics.sharedInstance.getRangeForValue(petrolStation.gasolina95!, fuelType: GAS95)
+            self.setColorForLabel(gasCell.petrol95Price, percentage: pctg)
         } else {
             gasCell.petrol95Price.text = "--"
+            gasCell.petrol95Price.textColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1)
         }
         
         if petrolStation.gasolina98 != nil && petrolStation.gasolina98  > 0 {
             gasCell.petrol98Price.text = String(format: "%.3f", petrolStation.gasolina98!)
+            let pctg = Statistics.sharedInstance.getRangeForValue(petrolStation.gasolina98!, fuelType: GAS98)
+            self.setColorForLabel(gasCell.petrol98Price, percentage: pctg)
         } else {
             gasCell.petrol98Price.text = "--"
+            gasCell.petrol98Price.textColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1)
         }
         
         if CLLocationCoordinate2DIsValid(userLocation) {
@@ -234,9 +282,10 @@ class GasolinerasTableViewController: UITableViewController, CLLocationManagerDe
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if segue.identifier == "MapSegue"{
-            /*let navigationController = segue.destinationViewController as UINavigationController
-            let vc = navigationController.topViewController as RestaurantViewController
-            vc.data = currentResponse[i] as NSArray*/
+            //Get the segue VC
+            let viewController = segue.destinationViewController as! GasMapViewController
+            //Set the highlighted cell
+            viewController.highlightedStation = gasTableArray[(self.tableView.indexPathForSelectedRow?.section)!];
         }
     }
     

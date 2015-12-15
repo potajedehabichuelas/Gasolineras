@@ -71,7 +71,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="93" id="G9X-km-NdE"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
                                                     <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -81,7 +81,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="93" id="IYX-Y2-ZFE"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
                                                     <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -91,7 +91,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="93" id="RhD-hO-xg3"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
                                                     <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -143,7 +143,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="93" id="EsV-cf-3HJ"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
                                                     <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -244,6 +244,7 @@
         <!--Mapa-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
                 <viewController id="8rJ-Kc-sve" customClass="GasMapViewController" customModule="Gasolineras" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
@@ -271,13 +272,20 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Mapa" image="second" id="cPa-gy-q4n"/>
+                    <navigationItem key="navigationItem" title="Mapa" id="3Jb-Nu-LsS">
+                        <barButtonItem key="rightBarButtonItem" title="Conducir" id="Qd5-x4-fVt">
+                            <connections>
+                                <action selector="DriveToStation:" destination="8rJ-Kc-sve" id="PuT-GD-I4Q"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="driveToStationButton" destination="Qd5-x4-fVt" id="GoF-sT-Jvu"/>
                         <outlet property="map" destination="f0Q-Om-hfd" id="IKB-we-WfU"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="360"/>
+            <point key="canvasLocation" x="1480" y="548"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -292,12 +300,30 @@
                     </tabBar>
                     <connections>
                         <segue destination="ncY-Ne-Fhu" kind="relationship" relationship="viewControllers" id="LV2-UY-eGW"/>
-                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="JHw-Zh-och" kind="relationship" relationship="viewControllers" id="qUg-r5-UCO"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="fj5-fI-otC">
+            <objects>
+                <navigationController id="JHw-Zh-och" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="a6b-Rf-u5C"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="EuN-0G-0W4">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="rootViewController" id="auS-9I-DH3"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Ne-Ju-69M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="756" y="548"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="Q4X-Fe-N9O">
@@ -561,7 +587,7 @@
         <image name="settings.png" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="UOr-ai-Ibg"/>
+        <segue reference="auS-9I-DH3"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

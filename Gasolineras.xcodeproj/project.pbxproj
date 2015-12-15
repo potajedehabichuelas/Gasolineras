@@ -10,6 +10,8 @@
 		3309DD6F1C16671A001D4D21 /* GasAnnotationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3309DD6E1C16671A001D4D21 /* GasAnnotationView.xib */; };
 		3309DD721C166809001D4D21 /* GasAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3309DD711C166809001D4D21 /* GasAnnotationView.swift */; };
 		3309DD791C1718B8001D4D21 /* GasPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3309DD781C1718B8001D4D21 /* GasPointAnnotation.swift */; };
+		330B717B1C1DFFE2002EB698 /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B717A1C1DFFE2002EB698 /* Statistics.swift */; };
+		330B717D1C205D61002EB698 /* 37x-Checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 330B717C1C205D61002EB698 /* 37x-Checkmark@2x.png */; };
 		3353CAFF1BFCA46E0009C997 /* PetrolStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3353CAFC1BFCA46E0009C997 /* PetrolStation.swift */; };
 		3353CB001BFCA46E0009C997 /* StationsXCountry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3353CAFD1BFCA46E0009C997 /* StationsXCountry.swift */; };
 		3353CB011BFCA46E0009C997 /* StationsXState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3353CAFE1BFCA46E0009C997 /* StationsXState.swift */; };
@@ -56,6 +58,8 @@
 		3309DD6E1C16671A001D4D21 /* GasAnnotationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GasAnnotationView.xib; path = Xibs/GasAnnotationView.xib; sourceTree = "<group>"; };
 		3309DD711C166809001D4D21 /* GasAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GasAnnotationView.swift; path = Views/GasAnnotationView.swift; sourceTree = "<group>"; };
 		3309DD781C1718B8001D4D21 /* GasPointAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GasPointAnnotation.swift; path = "Other Classes/GasPointAnnotation.swift"; sourceTree = "<group>"; };
+		330B717A1C1DFFE2002EB698 /* Statistics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Statistics.swift; path = Objects/Statistics.swift; sourceTree = "<group>"; };
+		330B717C1C205D61002EB698 /* 37x-Checkmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "37x-Checkmark@2x.png"; path = "Images/37x-Checkmark@2x.png"; sourceTree = "<group>"; };
 		3353CAFC1BFCA46E0009C997 /* PetrolStation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PetrolStation.swift; path = "CoreData Entities/PetrolStation.swift"; sourceTree = "<group>"; };
 		3353CAFD1BFCA46E0009C997 /* StationsXCountry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StationsXCountry.swift; path = "CoreData Entities/StationsXCountry.swift"; sourceTree = "<group>"; };
 		3353CAFE1BFCA46E0009C997 /* StationsXState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StationsXState.swift; path = "CoreData Entities/StationsXState.swift"; sourceTree = "<group>"; };
@@ -175,6 +179,7 @@
 			children = (
 				3353CB081BFCA4AA0009C997 /* CountryStations.swift */,
 				3353CB091BFCA4AA0009C997 /* Gasolinera.swift */,
+				330B717A1C1DFFE2002EB698 /* Statistics.swift */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -209,6 +214,7 @@
 		335D160C1C00B11000D5B8EC /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				330B717C1C205D61002EB698 /* 37x-Checkmark@2x.png */,
 				335D160D1C00B12200D5B8EC /* settings@2x.png */,
 			);
 			name = Images;
@@ -400,6 +406,7 @@
 				33BAE8951BE7BA0500118DCA /* Assets.xcassets in Resources */,
 				33BAE8931BE7BA0500118DCA /* Main.storyboard in Resources */,
 				3309DD6F1C16671A001D4D21 /* GasAnnotationView.xib in Resources */,
+				330B717D1C205D61002EB698 /* 37x-Checkmark@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,6 +537,7 @@
 				3353CB001BFCA46E0009C997 /* StationsXCountry.swift in Sources */,
 				3353CB181BFCA6DF0009C997 /* GasolinerasTableViewController.swift in Sources */,
 				3353CB0B1BFCA4AA0009C997 /* Gasolinera.swift in Sources */,
+				330B717B1C1DFFE2002EB698 /* Statistics.swift in Sources */,
 				33BAE8F51BE7DADD00118DCA /* Gasolineras.xcdatamodeld in Sources */,
 				3353CB051BFCA4910009C997 /* HttpHelper.swift in Sources */,
 				3353CB0E1BFCA4BB0009C997 /* Storage.swift in Sources */,

@@ -20,6 +20,4 @@ class GasPointAnnotation: MKPointAnnotation {
     var precioDieselPlus: String = ""
     
     var callOutView : GasAnnotationView?
-    
-
 }

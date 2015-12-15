@@ -19,7 +19,7 @@ class GasAnnotationView: UIView {
     @IBOutlet weak var precioDieselPlus: UILabel!
     
     @IBOutlet weak var addressLabel: UITextView!
-    
+
     /*
     // Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
