@@ -9,10 +9,14 @@
 import UIKit
 import CoreLocation
 import MapKit
+import GoogleMobileAds;
+
 
 class GasMapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
     @IBOutlet weak var map: MKMapView!
+    
+    @IBOutlet weak var bannerView: GADBannerView!
     
     var userLocation:CLLocationCoordinate2D = kCLLocationCoordinate2DInvalid;
     
@@ -25,6 +29,13 @@ class GasMapViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Google ads - load
+        bannerView.adUnitID = "ca-app-pub-7267181828972563/1737087937"
+        let request = GADRequest()
+        request.testDevices = ["9b387d95ac3f0f203b17157b601acb00"]
+        bannerView.rootViewController = self
+        bannerView.loadRequest(GADRequest())
     
         manager = CLLocationManager()
         manager.delegate = self
@@ -149,6 +160,27 @@ class GasMapViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
             annotation.precioDieselPlus = station.nuevoGasoleoA! > 0 ? String(station.nuevoGasoleoA!) : "--"
             annotation.precioGas95 = station.gasolina95! > 0 ? String(station.gasolina95!) : "--"
             annotation.precioGas98 = station.gasolina98! > 0 ? String(station.gasolina98!) : "--"
+            
+            //Set the color of the ann
+            let fuelSearchType = Storage.sharedInstance.settings[STORAGE_SEARCH_SETTINGS] as! String;
+            
+            if fuelSearchType == DIESEL && station.gasoleoA! > 0 {
+                let pctg = Statistics.sharedInstance.getRangeForValue(station.gasoleoA!, fuelType: fuelSearchType)
+                self.setColorForPin(annotation, percentage: pctg)
+            } else if fuelSearchType == DIESELPLUS && station.nuevoGasoleoA! > 0 {
+                let pctg = Statistics.sharedInstance.getRangeForValue(station.nuevoGasoleoA!, fuelType: fuelSearchType)
+                self.setColorForPin(annotation, percentage: pctg)
+            } else if fuelSearchType == GAS95 && station.gasolina95! > 0 {
+                let pctg = Statistics.sharedInstance.getRangeForValue(station.gasolina95!, fuelType: fuelSearchType)
+                self.setColorForPin(annotation, percentage: pctg)
+            } else if fuelSearchType == GAS98 && station.gasolina98! > 0 {
+                //Copy, filter and sort
+                let pctg = Statistics.sharedInstance.getRangeForValue(station.gasolina98!, fuelType: fuelSearchType)
+                self.setColorForPin(annotation, percentage: pctg)
+            } else {
+                annotation.pinColor = UIColor.blackColor()
+            }
+            
             map.addAnnotation(annotation)
         }
 
@@ -164,6 +196,19 @@ class GasMapViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         } else {
             //Red color, expensive
             label.textColor = UIColor(red: 177/255, green: 0, blue: 0, alpha: 1)
+        }
+    }
+    
+    func setColorForPin(pin : GasPointAnnotation, percentage : Double) {
+        if percentage < 30 {
+            //Green color, cheap
+            pin.pinColor = UIColor(red: 0, green: 128/255, blue: 0, alpha: 1)
+        } else if percentage >= 30 && percentage < 70 {
+            //Orange normal price
+            pin.pinColor =  UIColor(red: 1, green: 128/255, blue: 0, alpha: 1)
+        } else {
+            //Red color, expensive
+            pin.pinColor = UIColor(red: 177/255, green: 0, blue: 0, alpha: 1)
         }
     }
     
@@ -190,6 +235,29 @@ class GasMapViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         }
     }
     
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation.isKindOfClass(MKUserLocation){
+            return nil;
+        }
+        
+        let identifier = "pin"
+        var view: MKPinAnnotationView
+        if let dequeuedView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier)
+            as? MKPinAnnotationView {
+                dequeuedView.annotation = annotation
+                view = dequeuedView
+        } else {
+            view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+        }
+        
+        let cpa = view.annotation as! GasPointAnnotation
+        //Set the color of the annotion depeding on the price of the petrol & petrol selected
+        view.pinTintColor = cpa.pinColor
+        
+        return view
+
+    }
+
     func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
        
         if view.annotation!.isKindOfClass(MKUserLocation){

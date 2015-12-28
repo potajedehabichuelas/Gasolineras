@@ -127,49 +127,55 @@ class Gasolinera: NSObject {
     
     // MARK : Class Functions
     
-    class func gasolineraFromJSON(gasDict: NSDictionary) -> Gasolinera {
-        
-        let newGas : Gasolinera = Gasolinera();
-        
-        //Informacion general
-        newGas.margen = gasDict[JSON_MARGEN_KEY] as! String;
-        newGas.rotulo = gasDict[JSON_ROTULO_KEY] as! String;
-        newGas.remision = gasDict[JSON_REMISION_KEY] as! String;
-        newGas.horario = gasDict[JSON_HORARIO_KEY] as! String;
-        newGas.tipoVenta = gasDict[JSON_TIPO_VENTA_KEY] as! String;
-        
-        //Localizacion
-        newGas.latitud =  (gasDict[JSON_LATITUD_KEY] as! String).doubleConverter
-        newGas.longitud = (gasDict[JSON_LONGITUD_KEY] as! String).doubleConverter
-        
-        newGas.localidad = gasDict[JSON_LOCALIDAD_KEY] as! String;
-        newGas.municipio = gasDict[JSON_MUNICIPIO_KEY] as! String;
-        newGas.provincia = gasDict[JSON_PROVINCIA_KEY] as! String;
-        newGas.cp = gasDict[JSON_CODIGO_POSTAL_KEY] as! String;
-        
-        newGas.direccion = gasDict[JSON_DIRECCION_KEY] as? String; // Can be null
-        
-        //Precio de los carburantes - optional values - any of it could be null
-        
-        newGas.biodiesel = self.processDoubleJSON(gasDict, key: JSON_PRECIO_BIODIESEL_KEY);
-        
-        newGas.bioetanol = self.processDoubleJSON(gasDict, key: JSON_PRECIO_BIOETANOL_KEY);
-        
-        newGas.bioalcohol = self.processDoubleJSON(gasDict, key: JSON_PRECIO_BIOALCOHOL_KEY);
-        
-        newGas.gasNaturalComprimido = self.processDoubleJSON(gasDict, key: JSON_PRECIO_GAS_NATURAL_COMPRIMIDO_KEY);
-        
-        newGas.gasoleoA = self.processDoubleJSON(gasDict, key: JSON_PRECIO_GASOLEO_A_KEY);
-        
-        newGas.nuevoGasoleoA = self.processDoubleJSON(gasDict, key: JSON_PRECIO_NUEVO_GASOLEO_A_KEY);
-        
-        newGas.gasolina95 = self.processDoubleJSON(gasDict, key: JSON_PRECIO_GASOLINA95_KEY);
+    class func gasolineraFromJSON(gasDict: NSDictionary) -> Gasolinera? {
 
-        newGas.gasolina98 = self.processDoubleJSON(gasDict, key: JSON_PRECIO_GASOLINA98_KEY);
+        if let lat = gasDict[JSON_LATITUD_KEY] as? String , let long = gasDict[JSON_LONGITUD_KEY] as? String {
         
-        newGas.esterMetilico = self.processDoubleJSON(gasDict, key: JSON_PRECIO_ESTER_METILICO_KEY);
-        
-        return newGas;
+            let newGas : Gasolinera = Gasolinera();
+            
+            //Informacion general
+            newGas.margen = gasDict[JSON_MARGEN_KEY] as! String;
+            newGas.rotulo = gasDict[JSON_ROTULO_KEY] as! String;
+            newGas.remision = gasDict[JSON_REMISION_KEY] as! String;
+            newGas.horario = gasDict[JSON_HORARIO_KEY] as! String;
+            newGas.tipoVenta = gasDict[JSON_TIPO_VENTA_KEY] as! String;
+            
+            //Localizacion
+            newGas.latitud =  lat.doubleConverter
+            newGas.longitud = long.doubleConverter
+            
+            newGas.localidad = gasDict[JSON_LOCALIDAD_KEY] as! String;
+            newGas.municipio = gasDict[JSON_MUNICIPIO_KEY] as! String;
+            newGas.provincia = gasDict[JSON_PROVINCIA_KEY] as! String;
+            newGas.cp = gasDict[JSON_CODIGO_POSTAL_KEY] as! String;
+            
+            newGas.direccion = gasDict[JSON_DIRECCION_KEY] as? String; // Can be null
+            
+            //Precio de los carburantes - optional values - any of it could be null
+            
+            newGas.biodiesel = self.processDoubleJSON(gasDict, key: JSON_PRECIO_BIODIESEL_KEY);
+            
+            newGas.bioetanol = self.processDoubleJSON(gasDict, key: JSON_PRECIO_BIOETANOL_KEY);
+            
+            newGas.bioalcohol = self.processDoubleJSON(gasDict, key: JSON_PRECIO_BIOALCOHOL_KEY);
+            
+            newGas.gasNaturalComprimido = self.processDoubleJSON(gasDict, key: JSON_PRECIO_GAS_NATURAL_COMPRIMIDO_KEY);
+            
+            newGas.gasoleoA = self.processDoubleJSON(gasDict, key: JSON_PRECIO_GASOLEO_A_KEY);
+            
+            newGas.nuevoGasoleoA = self.processDoubleJSON(gasDict, key: JSON_PRECIO_NUEVO_GASOLEO_A_KEY);
+            
+            newGas.gasolina95 = self.processDoubleJSON(gasDict, key: JSON_PRECIO_GASOLINA95_KEY);
+            
+            newGas.gasolina98 = self.processDoubleJSON(gasDict, key: JSON_PRECIO_GASOLINA98_KEY);
+            
+            newGas.esterMetilico = self.processDoubleJSON(gasDict, key: JSON_PRECIO_ESTER_METILICO_KEY);
+            
+            return newGas;
+            
+        }
+        //Latitude or longitude conversion failed
+        return nil;
     }
     
     /*

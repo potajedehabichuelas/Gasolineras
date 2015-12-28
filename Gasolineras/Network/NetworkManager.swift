@@ -15,22 +15,22 @@ class NetworkManager: NSObject {
     //Singleton
     static let sharedInstance = NetworkManager()
     
-    //Request information for a word
+    //Request information for all the stations , and saves the result to db
     func requestSpanishPetrolStationData()
     {
         print("Requesting petrol station data for Spain: ");
         
         let requestResult : AnyObject? = HttpHelper.httpGetURL(SPAIN_BASE_URL, postPath:nil, parametersDict:nil);
         
-        let stationsForSpain : CountryStations?;
-        
         if let jsonDict = requestResult as? NSDictionary {
             //Translate JSON data into a collection of Gas Station Objects (Country sations
-            stationsForSpain = CountryStations.countryStationsFromJSON(jsonDict, countryName: "Spain");
+            let stationsForSpain : CountryStations? = CountryStations.countryStationsFromJSON(jsonDict, countryName: "Spain");
             //Save to file or DB
+            //Save to Core Data
+            if stationsForSpain != nil {
+                Storage.saveCountryStations(stationsForSpain!);
+            }
             
-            //Estructura - carpeta con nombre de pais -> archivo con nombre de la provincia y ese archivo contiene
-            // array de todas las gasofalineras en el municipio
         }
     }
 }

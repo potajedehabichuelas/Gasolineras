@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import GoogleMobileAds;
 
 struct priceType {
     var cheapPrice: Double
@@ -15,7 +16,7 @@ struct priceType {
     var expensivePrice: Double
 }
 
-class GasolinerasTableViewController: UITableViewController, CLLocationManagerDelegate {
+class GasolinerasTableViewController: UITableViewController, CLLocationManagerDelegate, GADInterstitialDelegate {
     
     var gasTableArray : Array<Gasolinera> = Array();
     
@@ -27,8 +28,13 @@ class GasolinerasTableViewController: UITableViewController, CLLocationManagerDe
     
     var fuelSearchType : String = "";
 
+    var interstitialAd: GADInterstitial!
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Google ads - load
+        self.interstitialAd = createAndLoadInterstitial()
         
         self.setGasArray()
         
@@ -48,6 +54,9 @@ class GasolinerasTableViewController: UITableViewController, CLLocationManagerDe
         let swipeRight = UISwipeGestureRecognizer(target: self, action: "gestureResponder:")
         swipeRight.direction = UISwipeGestureRecognizerDirection.Right
         self.view.addGestureRecognizer(swipeRight)
+        let swipeL = UISwipeGestureRecognizer(target: self, action: "gestureResponder:")
+        swipeL.direction = UISwipeGestureRecognizerDirection.Left
+        self.view.addGestureRecognizer(swipeL)
 
     }
 
@@ -79,12 +88,23 @@ class GasolinerasTableViewController: UITableViewController, CLLocationManagerDe
                     self.tableView.reloadData()
                 }
             } else {
-                print("prices updated")
                 dispatch_async(dispatch_get_main_queue()) {
-                    self.showDoneAnimation();
+                    //self.showDoneAnimation();
                 }
             }
         }
+    }
+    
+    func createAndLoadInterstitial() -> GADInterstitial {
+        let interstitial = GADInterstitial(adUnitID: "ca-app-pub-7267181828972563/3213821133")
+        interstitial.delegate = self
+        interstitial.loadRequest(GADRequest())
+        
+        return interstitial
+    }
+    
+    func interstitialDidDismissScreen(ad: GADInterstitial!) {
+        self.interstitialAd = createAndLoadInterstitial()
     }
     
     func showDoneAnimation() {
@@ -123,6 +143,10 @@ class GasolinerasTableViewController: UITableViewController, CLLocationManagerDe
         
         if let swipeGesture = gesture as? UISwipeGestureRecognizer {
             if (swipeGesture.direction == UISwipeGestureRecognizerDirection.Right) {
+                if (!self.settingsOnScreen) {
+                    self.settingsAction(swipeGesture);
+                }
+            } else if (swipeGesture.direction == UISwipeGestureRecognizerDirection.Left) {
                 if (self.settingsOnScreen) {
                     self.settingsAction(swipeGesture);
                 }
@@ -159,16 +183,9 @@ class GasolinerasTableViewController: UITableViewController, CLLocationManagerDe
         self.tableView.reloadData()
     }
     
-    // Set the colors - green - amber - red depending on the price of the fuel
-    func setColors() {
-        
-     
-    }
-    
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-
         return gasTableArray.count
     }
 
@@ -188,72 +205,96 @@ class GasolinerasTableViewController: UITableViewController, CLLocationManagerDe
             label.textColor = UIColor(red: 177/255, green: 0, blue: 0, alpha: 1)
         }
     }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        
+        if (indexPath.section % 10 == 0) {
+            //CEll is an ad
+            return 50;
+        } else {
+            return 100;
+        }
+    }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let gasCell : GasTableViewCell = tableView.dequeueReusableCellWithIdentifier("GasCell", forIndexPath: indexPath) as! GasTableViewCell
-        
-        let petrolStation : Gasolinera = gasTableArray[indexPath.section]
-
-        // Configure the gas Cell
-        gasCell.gasName.text = petrolStation.rotulo
-        
-        if petrolStation.gasoleoA != nil && petrolStation.gasoleoA > 0 {
-            gasCell.dieselPrice.text = String(format: "%.3f", petrolStation.gasoleoA!)
-            //Set the colour
-            let pctg = Statistics.sharedInstance.getRangeForValue(petrolStation.gasoleoA!, fuelType: DIESEL)
-            self.setColorForLabel(gasCell.dieselPrice, percentage: pctg)
-        } else {
-            gasCell.dieselPrice.text = "--"
-            gasCell.dieselPrice.textColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1)
-        }
-        
-        if petrolStation.nuevoGasoleoA != nil && petrolStation.nuevoGasoleoA > 0 {
-            gasCell.dieselPlusPrice.text = String(format: "%.3f", petrolStation.nuevoGasoleoA!)
-            let pctg = Statistics.sharedInstance.getRangeForValue(petrolStation.nuevoGasoleoA!, fuelType: DIESELPLUS)
-            self.setColorForLabel(gasCell.dieselPlusPrice, percentage: pctg)
+        if (indexPath.section % 10 == 0) {
+            //CEll is an ad
+           let gasCell = tableView.dequeueReusableCellWithIdentifier("GasCellAd", forIndexPath: indexPath) as! AdCellTableViewCell
+            gasCell.bannerView.rootViewController = self
+            
+            return gasCell;
             
         } else {
-            gasCell.dieselPlusPrice.text = "--"
-            gasCell.dieselPlusPrice.textColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1)
+            let gasCell = tableView.dequeueReusableCellWithIdentifier("GasCell", forIndexPath: indexPath) as! GasTableViewCell
+            
+            let petrolStation : Gasolinera = gasTableArray[((indexPath.section - indexPath.section / 10) - 1)] //- 1 cause of first ad, 0 pos
+            
+            // Configure the gas Cell
+            gasCell.gasName.text = petrolStation.rotulo
+            
+            if petrolStation.gasoleoA != nil && petrolStation.gasoleoA > 0 {
+                gasCell.dieselPrice.text = String(format: "%.3f", petrolStation.gasoleoA!)
+                //Set the colour
+                let pctg = Statistics.sharedInstance.getRangeForValue(petrolStation.gasoleoA!, fuelType: DIESEL)
+                self.setColorForLabel(gasCell.dieselPrice, percentage: pctg)
+            } else {
+                gasCell.dieselPrice.text = "--"
+                gasCell.dieselPrice.textColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1)
+            }
+            
+            if petrolStation.nuevoGasoleoA != nil && petrolStation.nuevoGasoleoA > 0 {
+                gasCell.dieselPlusPrice.text = String(format: "%.3f", petrolStation.nuevoGasoleoA!)
+                let pctg = Statistics.sharedInstance.getRangeForValue(petrolStation.nuevoGasoleoA!, fuelType: DIESELPLUS)
+                self.setColorForLabel(gasCell.dieselPlusPrice, percentage: pctg)
+                
+            } else {
+                gasCell.dieselPlusPrice.text = "--"
+                gasCell.dieselPlusPrice.textColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1)
+            }
+            
+            if petrolStation.gasolina95 != nil && petrolStation.gasolina95 > 0 {
+                gasCell.petrol95Price.text = String(format: "%.3f", petrolStation.gasolina95!)
+                
+                let pctg = Statistics.sharedInstance.getRangeForValue(petrolStation.gasolina95!, fuelType: GAS95)
+                self.setColorForLabel(gasCell.petrol95Price, percentage: pctg)
+            } else {
+                gasCell.petrol95Price.text = "--"
+                gasCell.petrol95Price.textColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1)
+            }
+            
+            if petrolStation.gasolina98 != nil && petrolStation.gasolina98  > 0 {
+                gasCell.petrol98Price.text = String(format: "%.3f", petrolStation.gasolina98!)
+                let pctg = Statistics.sharedInstance.getRangeForValue(petrolStation.gasolina98!, fuelType: GAS98)
+                self.setColorForLabel(gasCell.petrol98Price, percentage: pctg)
+            } else {
+                gasCell.petrol98Price.text = "--"
+                gasCell.petrol98Price.textColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1)
+            }
+            
+            if CLLocationCoordinate2DIsValid(userLocation) {
+                //Calculate distance in Km
+                
+                let userLoc : CLLocation = CLLocation.init(latitude: userLocation.latitude, longitude: userLocation.longitude)
+                
+                let gasLocation : CLLocation = CLLocation.init(latitude: petrolStation.latitud, longitude: petrolStation.longitud)
+                
+                var kilometers = userLoc.distanceFromLocation(gasLocation) / 1000
+                kilometers = round(10*kilometers)/10
+                
+                gasCell.distanceKm.text = "\(kilometers) Km"
+            }
+            return gasCell;
         }
         
-        if petrolStation.gasolina95 != nil && petrolStation.gasolina95 > 0 {
-            gasCell.petrol95Price.text = String(format: "%.3f", petrolStation.gasolina95!)
-            
-            let pctg = Statistics.sharedInstance.getRangeForValue(petrolStation.gasolina95!, fuelType: GAS95)
-            self.setColorForLabel(gasCell.petrol95Price, percentage: pctg)
-        } else {
-            gasCell.petrol95Price.text = "--"
-            gasCell.petrol95Price.textColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1)
-        }
-        
-        if petrolStation.gasolina98 != nil && petrolStation.gasolina98  > 0 {
-            gasCell.petrol98Price.text = String(format: "%.3f", petrolStation.gasolina98!)
-            let pctg = Statistics.sharedInstance.getRangeForValue(petrolStation.gasolina98!, fuelType: GAS98)
-            self.setColorForLabel(gasCell.petrol98Price, percentage: pctg)
-        } else {
-            gasCell.petrol98Price.text = "--"
-            gasCell.petrol98Price.textColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1)
-        }
-        
-        if CLLocationCoordinate2DIsValid(userLocation) {
-            //Calculate distance in Km
-            
-            let userLoc : CLLocation = CLLocation.init(latitude: userLocation.latitude, longitude: userLocation.longitude)
-            
-            let gasLocation : CLLocation = CLLocation.init(latitude: petrolStation.latitud, longitude: petrolStation.longitud)
-            
-            var kilometers = userLoc.distanceFromLocation(gasLocation) / 1000
-            kilometers = round(10*kilometers)/10
-            
-            gasCell.distanceKm.text = "\(kilometers) Km"
-        }
-        
-        return gasCell
+    
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+
+        if self.interstitialAd.isReady {
+            self.interstitialAd.presentFromRootViewController(self)
+        }
         self.performSegueWithIdentifier("MapSegue", sender: self)
     }
     
@@ -285,7 +326,8 @@ class GasolinerasTableViewController: UITableViewController, CLLocationManagerDe
             //Get the segue VC
             let viewController = segue.destinationViewController as! GasMapViewController
             //Set the highlighted cell
-            viewController.highlightedStation = gasTableArray[(self.tableView.indexPathForSelectedRow?.section)!];
+            let section : Int = (self.tableView.indexPathForSelectedRow?.section)!
+            viewController.highlightedStation = gasTableArray[(section - (section / 10) - 1)];
         }
     }
     

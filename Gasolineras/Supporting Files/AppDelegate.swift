@@ -16,6 +16,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        //Image Background Navigation Bar
+        UITabBar.appearance().tintColor = UIColor(red: 0, green: 128/255, blue: 128/255, alpha: 1)
+        let navBackgroundImage:UIImage! = UIImage(named: "navBar.png")
+        UINavigationBar.appearance().setBackgroundImage(navBackgroundImage, forBarMetrics: .Default)
+        
+        UINavigationBar.appearance().titleTextAttributes = [
+            NSForegroundColorAttributeName : UIColor.whiteColor(),
+            NSFontAttributeName: UIFont(name: "AvenirNext-Regular", size: 20)!
+            
+            
+        ]
+        
         return true
     }
 

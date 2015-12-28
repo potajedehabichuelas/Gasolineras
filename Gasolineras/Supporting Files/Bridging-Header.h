@@ -14,6 +14,5 @@
 #import "MBProgressHUD.h"
 #import "SWRevealViewController.h"
 
-//@import GoogleMobileAds;
 
 #endif

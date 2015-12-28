@@ -24,9 +24,10 @@ class StorageTests: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         
+        
         print("Attempting to retrieve petrol stations from Internet")
         // Request petrol station data
-        NetworkManager.sharedInstance.requestSpanishPetrolStationData();
+       // NetworkManager.sharedInstance.requestSpanishPetrolStationData();
         
         print("Attempting to retrieve petrol stations from Core Data")
         //Test

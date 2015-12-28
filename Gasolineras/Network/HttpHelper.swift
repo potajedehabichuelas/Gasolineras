@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class HttpHelper: NSObject {
     
     //POST Request
@@ -25,25 +26,23 @@ class HttpHelper: NSObject {
         //Semaphore to wait for completition block
         let semaphore: dispatch_semaphore_t = dispatch_semaphore_create(0);
         
-        let manager : AFHTTPRequestOperationManager = AFHTTPRequestOperationManager();
+        let manager : AFHTTPSessionManager = AFHTTPSessionManager();
         
-        manager.POST(fullURL,
-            parameters: parametersDict,
-            success: {
-                (operation: AFHTTPRequestOperation!,responseObject: AnyObject!) in
-                print("JSON: " + responseObject.description);
-                
-                responseJSON = responseObject;
-                //Signal semaphore
-                dispatch_semaphore_signal(semaphore);
-                
-            }, failure: { (operation: AFHTTPRequestOperation?,error: NSError!) in
+        manager.POST(fullURL, parameters: parametersDict, progress: nil, success: {
+            (operation: NSURLSessionTask!,responseObject: AnyObject?) in
+            //print("JSON: " + responseObject!.description);
+            
+            responseJSON = responseObject;
+            //Signal semaphore
+            dispatch_semaphore_signal(semaphore);
+            
+            }, failure: { (operation: NSURLSessionTask?,error: NSError!) in
                 print("[HTTPHelper Error]: " + error.localizedDescription);
                 //Maybe check for internet connection ?
                 
                 //Signal semaphore
                 dispatch_semaphore_signal(semaphore);
-        });
+        })
         
         //Wait for the completition of the request
         dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
@@ -69,26 +68,24 @@ class HttpHelper: NSObject {
         //Semaphore to wait for completition block
         let semaphore: dispatch_semaphore_t = dispatch_semaphore_create(0);
         
-        let manager : AFHTTPRequestOperationManager = AFHTTPRequestOperationManager();
+        let manager : AFHTTPSessionManager = AFHTTPSessionManager();
         
-        manager.GET(fullURL,
-            parameters: parametersDict,
-            success: {
-                (operation: AFHTTPRequestOperation!,responseObject: AnyObject!) in
-                //println("JSON: " + responseObject.description);
-                
-                responseJSON = responseObject;
-                //println(responseJSON);
-                //Signal semaphore
-                dispatch_semaphore_signal(semaphore);
-                
-            },failure: { (operation: AFHTTPRequestOperation?,error: NSError!) in
+        manager.GET(fullURL, parameters: parametersDict, progress: nil, success:  {
+            (operation: NSURLSessionTask!,responseObject: AnyObject?) in
+            //println("JSON: " + responseObject.description);
+            
+            responseJSON = responseObject;
+            //println(responseJSON);
+            //Signal semaphore
+            dispatch_semaphore_signal(semaphore);
+            
+            }, failure: { (operation: NSURLSessionTask?,error: NSError!) in
                 print("[HTTPHelper Error]: " + error.localizedDescription);
                 //Maybe check for internet connection ?
                 
                 //Signal semaphore
                 dispatch_semaphore_signal(semaphore);
-        });
+        })
         
         //Wait for the completition of the request
         dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);

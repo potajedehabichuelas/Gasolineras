@@ -296,7 +296,6 @@ class Storage: NSObject {
                 if let countryStation : StationsXCountry = (fetchResults?.first)! {
                     //Compare the dates
                     let todayDate = NSDate(timeIntervalSinceNow: 0)
-                    
                     let calendar = NSCalendar.currentCalendar()
                     
                     let comps1 = calendar.components([NSCalendarUnit.Month , NSCalendarUnit.Year , NSCalendarUnit.Day], fromDate:countryStation.lastUpdated)
@@ -356,10 +355,23 @@ class Storage: NSObject {
                     
                     if distanceToUser <= range {
                         filteredArray.append(state);
-                        stats.gas95Array.append(Double(state.gasolina95))
-                        stats.gas98Array.append(Double(state.gasolina98))
-                        stats.dieselArray.append(Double(state.gasoleoA))
-                        stats.dieselPlusArray.append(Double(state.nuevoGasoleoA))
+                    
+                        if Double(state.gasolina95) > 0 {
+                            stats.gas95Array.append(Double(state.gasolina95))
+                        }
+                        
+                        if Double(state.gasolina98) > 0 {
+                            stats.gas98Array.append(Double(state.gasolina98))
+                        }
+                        
+                        if Double(state.gasoleoA) > 0 {
+                            stats.dieselArray.append(Double(state.gasoleoA))
+                        }
+                        
+                        if Double(state.nuevoGasoleoA) > 0 {
+                            stats.dieselPlusArray.append(Double(state.nuevoGasoleoA))
+                        }
+                    
                     }
                 }
                 

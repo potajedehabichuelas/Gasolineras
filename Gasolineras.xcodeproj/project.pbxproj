@@ -26,6 +26,10 @@
 		3353CB1A1BFCAFD30009C997 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3353CB191BFCAFD30009C997 /* MapKit.framework */; };
 		335D160E1C00B12200D5B8EC /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 335D160D1C00B12200D5B8EC /* settings@2x.png */; };
 		335D16121C02577100D5B8EC /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335D16111C02577100D5B8EC /* SettingsTableViewController.swift */; };
+		338692C41C2E0300005E38AB /* search@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 338692C31C2E0300005E38AB /* search@2x.png */; };
+		338692C61C2E0671005E38AB /* Compass@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 338692C51C2E0671005E38AB /* Compass@2x.png */; };
+		339A57541C31E82E008B716D /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 339A57531C31E82E008B716D /* splash.png */; };
+		33B2210D1C2086780037618B /* AdCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B2210C1C2086780037618B /* AdCellTableViewCell.swift */; };
 		33BAE8931BE7BA0500118DCA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33BAE8911BE7BA0500118DCA /* Main.storyboard */; };
 		33BAE8951BE7BA0500118DCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33BAE8941BE7BA0500118DCA /* Assets.xcassets */; };
 		33BAE8981BE7BA0500118DCA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33BAE8961BE7BA0500118DCA /* LaunchScreen.storyboard */; };
@@ -33,6 +37,7 @@
 		33BAE8AE1BE7BA0600118DCA /* GasolinerasUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BAE8AD1BE7BA0600118DCA /* GasolinerasUITests.swift */; };
 		33BAE8F01BE7DA3D00118DCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BAE8ED1BE7DA3D00118DCA /* AppDelegate.swift */; };
 		33BAE8F51BE7DADD00118DCA /* Gasolineras.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 33BAE8F31BE7DADD00118DCA /* Gasolineras.xcdatamodeld */; };
+		33DA36341C2DDEF600CEF7A4 /* navBar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33DA36331C2DDEF600CEF7A4 /* navBar@2x.png */; };
 		94CA144606B98F98B888B08D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7693144179439A229C467281 /* libPods.a */; };
 		950386A382B84B1C093E0660 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7693144179439A229C467281 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -74,6 +79,10 @@
 		3353CB191BFCAFD30009C997 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		335D160D1C00B12200D5B8EC /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "settings@2x.png"; path = "Images/settings@2x.png"; sourceTree = "<group>"; };
 		335D16111C02577100D5B8EC /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsTableViewController.swift; path = VC/SettingsTableViewController.swift; sourceTree = "<group>"; };
+		338692C31C2E0300005E38AB /* search@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "search@2x.png"; path = "Images/search@2x.png"; sourceTree = "<group>"; };
+		338692C51C2E0671005E38AB /* Compass@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Compass@2x.png"; path = "Images/Compass@2x.png"; sourceTree = "<group>"; };
+		339A57531C31E82E008B716D /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = splash.png; path = Images/splash.png; sourceTree = "<group>"; };
+		33B2210C1C2086780037618B /* AdCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdCellTableViewCell.swift; path = "Other Classes/AdCellTableViewCell.swift"; sourceTree = "<group>"; };
 		33BAE8881BE7BA0500118DCA /* Gasolineras.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gasolineras.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33BAE8921BE7BA0500118DCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		33BAE8941BE7BA0500118DCA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -88,6 +97,7 @@
 		33BAE8EE1BE7DA3D00118DCA /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Bridging-Header.h"; path = "Supporting Files/Bridging-Header.h"; sourceTree = "<group>"; };
 		33BAE8EF1BE7DA3D00118DCA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "Supporting Files/Info.plist"; sourceTree = "<group>"; };
 		33BAE8F41BE7DADD00118DCA /* Gasolineras.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Gasolineras.xcdatamodel; sourceTree = "<group>"; };
+		33DA36331C2DDEF600CEF7A4 /* navBar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "navBar@2x.png"; path = "Images/navBar@2x.png"; sourceTree = "<group>"; };
 		46B9C5DF3406BFAAF481558C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		7693144179439A229C467281 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8C5443D79092ECAEB91087D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -207,6 +217,7 @@
 			children = (
 				3353CB151BFCA6780009C997 /* GasTableViewCell.swift */,
 				3309DD781C1718B8001D4D21 /* GasPointAnnotation.swift */,
+				33B2210C1C2086780037618B /* AdCellTableViewCell.swift */,
 			);
 			name = "Other Classes";
 			sourceTree = "<group>";
@@ -214,6 +225,10 @@
 		335D160C1C00B11000D5B8EC /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				339A57531C31E82E008B716D /* splash.png */,
+				338692C51C2E0671005E38AB /* Compass@2x.png */,
+				338692C31C2E0300005E38AB /* search@2x.png */,
+				33DA36331C2DDEF600CEF7A4 /* navBar@2x.png */,
 				330B717C1C205D61002EB698 /* 37x-Checkmark@2x.png */,
 				335D160D1C00B12200D5B8EC /* settings@2x.png */,
 			);
@@ -365,6 +380,7 @@
 				TargetAttributes = {
 					33BAE8871BE7BA0500118DCA = {
 						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = Z97F83GR8X;
 					};
 					33BAE89D1BE7BA0600118DCA = {
 						CreatedOnToolsVersion = 7.1;
@@ -401,7 +417,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				338692C41C2E0300005E38AB /* search@2x.png in Resources */,
 				33BAE8981BE7BA0500118DCA /* LaunchScreen.storyboard in Resources */,
+				33DA36341C2DDEF600CEF7A4 /* navBar@2x.png in Resources */,
+				338692C61C2E0671005E38AB /* Compass@2x.png in Resources */,
+				339A57541C31E82E008B716D /* splash.png in Resources */,
 				335D160E1C00B12200D5B8EC /* settings@2x.png in Resources */,
 				33BAE8951BE7BA0500118DCA /* Assets.xcassets in Resources */,
 				33BAE8931BE7BA0500118DCA /* Main.storyboard in Resources */,
@@ -536,6 +556,7 @@
 				3353CB061BFCA4910009C997 /* NetworkManager.swift in Sources */,
 				3353CB001BFCA46E0009C997 /* StationsXCountry.swift in Sources */,
 				3353CB181BFCA6DF0009C997 /* GasolinerasTableViewController.swift in Sources */,
+				33B2210D1C2086780037618B /* AdCellTableViewCell.swift in Sources */,
 				3353CB0B1BFCA4AA0009C997 /* Gasolinera.swift in Sources */,
 				330B717B1C1DFFE2002EB698 /* Statistics.swift in Sources */,
 				33BAE8F51BE7DADD00118DCA /* Gasolineras.xcdatamodeld in Sources */,
@@ -615,7 +636,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_BITCODE = NO;
+				ENABLE_BITCODE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -661,7 +682,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_BITCODE = NO;
+				ENABLE_BITCODE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -687,11 +708,15 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/Gasolineras/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Xquare.Gasolineras;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Xquare.Gasolineras;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Gasolineras/Supporting Files/Bridging-Header.h";
 				USER_HEADER_SEARCH_PATHS = "";
 			};
@@ -704,11 +729,15 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/Gasolineras/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Xquare.Gasolineras;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Xquare.Gasolineras;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Gasolineras/Supporting Files/Bridging-Header.h";
 				USER_HEADER_SEARCH_PATHS = "";
 			};

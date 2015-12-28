@@ -19,5 +19,7 @@ class GasPointAnnotation: MKPointAnnotation {
     var precioDiesel: String = ""
     var precioDieselPlus: String = ""
     
+    var pinColor = UIColor.blackColor();
+    
     var callOutView : GasAnnotationView?
 }

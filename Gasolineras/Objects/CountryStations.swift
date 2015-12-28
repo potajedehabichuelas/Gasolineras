@@ -47,7 +47,7 @@ class CountryStations: NSObject {
         
         let dateFormatter = NSDateFormatter()
         //Spanish time zone!
-        dateFormatter.dateFormat = "dd/MM/yyyy hh:mm:ss +0200"
+        dateFormatter.dateFormat = "dd/MM/yyyy HH:mm:ss +0200"
         dateFormatter.timeZone = NSTimeZone(abbreviation: "UTC");
         //There should always be a date
         countryStations.lastUpdated = dateFormatter.dateFromString(gasDict.objectForKey(STATIONS_FECHA_KEY) as! String)
@@ -60,13 +60,13 @@ class CountryStations: NSObject {
             
             for stationDict in stationArray {
                 //Parse the station and add it to the array
-                let petrolStation : Gasolinera = Gasolinera.gasolineraFromJSON(stationDict as! NSDictionary);
-                countryStations.stationsArray.append(petrolStation);
+                let petrolStation : Gasolinera? = Gasolinera.gasolineraFromJSON(stationDict as! NSDictionary);
+                if petrolStation != nil {
+                    countryStations.stationsArray.append(petrolStation!);
+                }
+                
             }
             print("Log: Finished parsing petrol stations for " + countryName)
-            
-            //Save to Core Data
-            Storage.saveCountryStations(countryStations);
         }
         
         return countryStations;
