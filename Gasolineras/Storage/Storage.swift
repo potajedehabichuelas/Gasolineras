@@ -145,9 +145,22 @@ class Storage: NSObject {
 
     class func saveCountryStations(stationsForCountry: CountryStations)
     {
-        
         print("Log: Saving to Core Data....")
-        let managedContext = sharedInstance.managedObjectContext
+
+        /*Problem: CRASH when saving
+        //Cause : NSManagedcontext being accessed by a diferent thread other than the one which created it
+        //Solution : Because this is called from a bg thread, wrap the code in performBlock
+        //Other thoughts: Tried this:
+        //let managedContext = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
+        //managedContext.parentContext = moc
+        //And it worked, using a different context to work with stuff, though it didn't save shit when the code was wrapped in perform block
+        //Update: you should not access context across threads, so coming back to other thoughts approach
+        */
+        
+        let moc = sharedInstance.managedObjectContext
+        
+        let managedContext = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
+        managedContext.parentContext = moc
         
         //First of all dump all the data
         do {
@@ -268,7 +281,7 @@ class Storage: NSObject {
                 
                 //add the entity to the array to avoid recreating it
                 statesEntities.append(stateEntity)
-
+                
             }
             
         } // End of for
@@ -276,9 +289,11 @@ class Storage: NSObject {
         //Save
         var error: NSError?
         do {
+            //Save the child and master context
             try managedContext.save()
+            try sharedInstance.managedObjectContext.save()
             print("Log: Saved to Core Data....")
-
+            
         } catch let error1 as NSError {
             error = error1
             print("Log : Could not save \(error), \(error?.userInfo)")
@@ -290,7 +305,7 @@ class Storage: NSObject {
         let requestStation = NSFetchRequest(entityName: COUNTRY_STATIONS_ENTITY)
         
         do {
-            let fetchResults = try self.managedObjectContext.executeFetchRequest(requestStation) as? [StationsXCountry]
+            let fetchResults = try Storage.sharedInstance.managedObjectContext.executeFetchRequest(requestStation) as? [StationsXCountry]
             
             if (fetchResults != nil && fetchResults?.count > 0) {
                 if let countryStation : StationsXCountry = (fetchResults?.first)! {
@@ -338,7 +353,7 @@ class Storage: NSObject {
         let requestStation = NSFetchRequest(entityName: STATIONS_ENTITY)
         
         do {
-            let fetchResults = try self.managedObjectContext.executeFetchRequest(requestStation) as? [PetrolStation]
+            let fetchResults = try Storage.sharedInstance.managedObjectContext.executeFetchRequest(requestStation) as? [PetrolStation]
             
             if (fetchResults != nil) {
                 

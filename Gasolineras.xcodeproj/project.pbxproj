@@ -23,9 +23,9 @@
 		3353CB131BFCA4D70009C997 /* GasMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3353CB111BFCA4D70009C997 /* GasMapViewController.swift */; };
 		3353CB161BFCA6780009C997 /* GasTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3353CB151BFCA6780009C997 /* GasTableViewCell.swift */; };
 		3353CB181BFCA6DF0009C997 /* GasolinerasTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3353CB171BFCA6DF0009C997 /* GasolinerasTableViewController.swift */; };
-		3353CB1A1BFCAFD30009C997 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3353CB191BFCAFD30009C997 /* MapKit.framework */; };
 		335D160E1C00B12200D5B8EC /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 335D160D1C00B12200D5B8EC /* settings@2x.png */; };
 		335D16121C02577100D5B8EC /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335D16111C02577100D5B8EC /* SettingsTableViewController.swift */; };
+		3366731A1C429C56003D8BCC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 336673191C429C56003D8BCC /* MapKit.framework */; };
 		338692C41C2E0300005E38AB /* search@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 338692C31C2E0300005E38AB /* search@2x.png */; };
 		338692C61C2E0671005E38AB /* Compass@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 338692C51C2E0671005E38AB /* Compass@2x.png */; };
 		339A57541C31E82E008B716D /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 339A57531C31E82E008B716D /* splash.png */; };
@@ -76,9 +76,9 @@
 		3353CB111BFCA4D70009C997 /* GasMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GasMapViewController.swift; path = VC/GasMapViewController.swift; sourceTree = "<group>"; };
 		3353CB151BFCA6780009C997 /* GasTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GasTableViewCell.swift; path = "Other Classes/GasTableViewCell.swift"; sourceTree = "<group>"; };
 		3353CB171BFCA6DF0009C997 /* GasolinerasTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GasolinerasTableViewController.swift; path = VC/GasolinerasTableViewController.swift; sourceTree = "<group>"; };
-		3353CB191BFCAFD30009C997 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		335D160D1C00B12200D5B8EC /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "settings@2x.png"; path = "Images/settings@2x.png"; sourceTree = "<group>"; };
 		335D16111C02577100D5B8EC /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsTableViewController.swift; path = VC/SettingsTableViewController.swift; sourceTree = "<group>"; };
+		336673191C429C56003D8BCC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		338692C31C2E0300005E38AB /* search@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "search@2x.png"; path = "Images/search@2x.png"; sourceTree = "<group>"; };
 		338692C51C2E0671005E38AB /* Compass@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Compass@2x.png"; path = "Images/Compass@2x.png"; sourceTree = "<group>"; };
 		339A57531C31E82E008B716D /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = splash.png; path = Images/splash.png; sourceTree = "<group>"; };
@@ -108,7 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3353CB1A1BFCAFD30009C997 /* MapKit.framework in Frameworks */,
+				3366731A1C429C56003D8BCC /* MapKit.framework in Frameworks */,
 				950386A382B84B1C093E0660 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -143,7 +143,7 @@
 		0F975A776700655B763EA9BF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3353CB191BFCAFD30009C997 /* MapKit.framework */,
+				336673191C429C56003D8BCC /* MapKit.framework */,
 				7693144179439A229C467281 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -381,6 +381,11 @@
 					33BAE8871BE7BA0500118DCA = {
 						CreatedOnToolsVersion = 7.1;
 						DevelopmentTeam = Z97F83GR8X;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					33BAE89D1BE7BA0600118DCA = {
 						CreatedOnToolsVersion = 7.1;
