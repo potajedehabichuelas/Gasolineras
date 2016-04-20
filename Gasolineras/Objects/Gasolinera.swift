@@ -190,13 +190,6 @@ class Gasolinera: NSObject {
             }
         }
         
-        //Safer version
-        /*if let stringValue = (gasDict[key] as? String) { // Valid string
-            if let value = stringValue.doubleConverter as Double? { // is a double
-                if value > 0 {return value} // Bigger than 0, means it's sold in the station
-            }
-        }*/
-        
         return nil;
     }
     

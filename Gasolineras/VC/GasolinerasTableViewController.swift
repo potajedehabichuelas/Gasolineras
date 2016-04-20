@@ -51,10 +51,10 @@ class GasolinerasTableViewController: UITableViewController, CLLocationManagerDe
         self.revealViewController().bounceBackOnLeftOverdraw = true;
         
         //Gesture recognizers
-        let swipeRight = UISwipeGestureRecognizer(target: self, action: "gestureResponder:")
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(GasolinerasTableViewController.gestureResponder(_:)))
         swipeRight.direction = UISwipeGestureRecognizerDirection.Right
         self.view.addGestureRecognizer(swipeRight)
-        let swipeL = UISwipeGestureRecognizer(target: self, action: "gestureResponder:")
+        let swipeL = UISwipeGestureRecognizer(target: self, action: #selector(GasolinerasTableViewController.gestureResponder(_:)))
         swipeL.direction = UISwipeGestureRecognizerDirection.Left
         self.view.addGestureRecognizer(swipeL)
 

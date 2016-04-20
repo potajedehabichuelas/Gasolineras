@@ -62,7 +62,7 @@ class Statistics: NSObject {
             array = gas98Array;
         }
         
-        for var i = 0 ; i < array.count ; i++ {
+        for i in 0  ..< array.count  {
             if array[i] >= price {
                 let percentage : Double = (Double(i) / Double(array.count)) * 100;
                 return percentage;
