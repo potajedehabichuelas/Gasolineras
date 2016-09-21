@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -14,7 +13,6 @@
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gas Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="3Bl-Z3-VtB">
                     <rect key="frame" x="15" y="4" width="253" height="29"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="253" id="bV9-NM-rGh"/>
                         <constraint firstAttribute="height" constant="29" id="bgi-bq-3mV"/>
@@ -25,7 +23,6 @@
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="95" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dr3-ag-jnX">
                     <rect key="frame" x="7" y="33" width="50" height="23.5"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="23.5" id="t9u-0A-W12"/>
                         <constraint firstAttribute="width" constant="50" id="umR-ZF-Fk8"/>
@@ -39,7 +36,6 @@
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8fv-rQ-xfk">
                     <rect key="frame" x="66" y="59" width="50" height="16.5"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="50" id="pj2-WK-Q66"/>
                     </constraints>
@@ -49,7 +45,6 @@
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rRz-Vd-nGY">
                     <rect key="frame" x="207" y="59" width="50" height="16.5"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="50" id="uyZ-Tx-liP"/>
                     </constraints>
@@ -59,7 +54,6 @@
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PEj-3p-6f1">
                     <rect key="frame" x="7" y="59" width="50" height="16.5"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="50" id="2Lz-MG-KVR"/>
                     </constraints>
@@ -69,7 +63,6 @@
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="98" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uzB-AC-Fns">
                     <rect key="frame" x="66.5" y="33" width="50" height="23.5"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="50" id="iI1-Ne-pg1"/>
                         <constraint firstAttribute="height" constant="23.5" id="vwx-lP-66j"/>
@@ -83,7 +76,6 @@
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Diesel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q9p-0e-EXP">
                     <rect key="frame" x="133.5" y="33" width="50" height="23.5"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="50" id="Pvo-HO-207"/>
                         <constraint firstAttribute="height" constant="23.5" id="VHB-uI-mgf"/>
@@ -97,7 +89,6 @@
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Diesel+" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="amR-gL-8h6">
                     <rect key="frame" x="207" y="33" width="50" height="23.5"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="23.5" id="F6b-nl-WWt"/>
                         <constraint firstAttribute="width" constant="50" id="Ygu-eb-IUH"/>
@@ -111,7 +102,6 @@
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a95-gC-Aex">
                     <rect key="frame" x="133" y="59" width="50" height="16.5"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="50" id="A3T-Yr-cOy"/>
                     </constraints>
@@ -121,12 +111,10 @@
                 </label>
                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="Dg9-2e-InI">
                     <rect key="frame" x="0.0" y="84" width="276" height="2"/>
-                    <animations/>
                     <color key="tintColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                 </progressView>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="address" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4u-u8-4Zz">
                     <rect key="frame" x="7" y="88" width="261" height="47"/>
-                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="47" id="GDE-9L-MMG"/>
@@ -138,7 +126,6 @@
                     <dataDetectorType key="dataDetectorTypes" address="YES"/>
                 </textView>
             </subviews>
-            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="3Bl-Z3-VtB" firstAttribute="leading" secondItem="OBD-Cn-on1" secondAttribute="leading" constant="15" id="1NR-7P-wAy"/>

@@ -87,7 +87,6 @@ class Gasolinera: NSObject {
     
     var esterMetilico : Double?;
     
-    
     // MARK : INIT
     
     override init() {
