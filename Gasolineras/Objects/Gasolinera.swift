@@ -94,8 +94,8 @@ class Gasolinera: NSObject {
     }
     
     
-    func copyWithZone(zone: NSZone) -> AnyObject {
-        return self.dynamicType.init(self)
+    func copyWithZone(_ zone: NSZone?) -> AnyObject {
+        return type(of: self).init(self)
     }
     
     required init(_ object: Gasolinera) {
@@ -126,7 +126,7 @@ class Gasolinera: NSObject {
     
     // MARK : Class Functions
     
-    class func gasolineraFromJSON(gasDict: NSDictionary) -> Gasolinera? {
+    class func gasolineraFromJSON(_ gasDict: NSDictionary) -> Gasolinera? {
 
         if let lat = gasDict[JSON_LATITUD_KEY] as? String , let long = gasDict[JSON_LONGITUD_KEY] as? String {
         
@@ -181,7 +181,7 @@ class Gasolinera: NSObject {
     * Helper to process json value, get the number and returns nil if value is not valid (NULL or <= 0 which means it is not available)
     */
     
-    class func processDoubleJSON(gasDict : NSDictionary, key : String) -> Double? {
+    class func processDoubleJSON(_ gasDict : NSDictionary, key : String) -> Double? {
         
         if let value : Double = (gasDict[key] as? String)?.doubleConverter { // Valid string and a double
             if value > 0 { // Bigger than 0, means it's sold in the station
@@ -194,70 +194,70 @@ class Gasolinera: NSObject {
     
     // MARK : NSCODING
     
-    func encodeWithCoder(aCoder: NSCoder) {
+    func encodeWithCoder(_ aCoder: NSCoder) {
         
-        aCoder.encodeObject(self.margen, forKey:JSON_MARGEN_KEY)
-        aCoder.encodeObject(self.remision, forKey:JSON_REMISION_KEY)
+        aCoder.encode(self.margen, forKey:JSON_MARGEN_KEY)
+        aCoder.encode(self.remision, forKey:JSON_REMISION_KEY)
         
-        aCoder.encodeObject(self.rotulo, forKey: JSON_ROTULO_KEY)
+        aCoder.encode(self.rotulo, forKey: JSON_ROTULO_KEY)
     
-        aCoder.encodeObject(self.horario, forKey: JSON_HORARIO_KEY)
+        aCoder.encode(self.horario, forKey: JSON_HORARIO_KEY)
         
-        aCoder.encodeObject(self.tipoVenta, forKey: JSON_TIPO_VENTA_KEY)
+        aCoder.encode(self.tipoVenta, forKey: JSON_TIPO_VENTA_KEY)
         
-        aCoder.encodeDouble(self.latitud, forKey: JSON_LATITUD_KEY)
+        aCoder.encode(self.latitud, forKey: JSON_LATITUD_KEY)
         
-        aCoder.encodeDouble(self.longitud, forKey: JSON_LONGITUD_KEY)
+        aCoder.encode(self.longitud, forKey: JSON_LONGITUD_KEY)
         
-        aCoder.encodeObject(self.localidad, forKey: JSON_LOCALIDAD_KEY)
+        aCoder.encode(self.localidad, forKey: JSON_LOCALIDAD_KEY)
         
-        aCoder.encodeObject(self.municipio, forKey: JSON_MUNICIPIO_KEY)
+        aCoder.encode(self.municipio, forKey: JSON_MUNICIPIO_KEY)
         
-        aCoder.encodeObject(self.provincia, forKey: JSON_PROVINCIA_KEY)
+        aCoder.encode(self.provincia, forKey: JSON_PROVINCIA_KEY)
         
-        aCoder.encodeObject(self.cp, forKey: JSON_CODIGO_POSTAL_KEY)
+        aCoder.encode(self.cp, forKey: JSON_CODIGO_POSTAL_KEY)
         
         if self.direccion != nil {
-            aCoder.encodeObject(self.direccion, forKey: JSON_DIRECCION_KEY)
+            aCoder.encode(self.direccion, forKey: JSON_DIRECCION_KEY)
         }
         
         
         //Precios - they could be null - meaning that the gas station doesn't provide them
         
         if self.biodiesel != nil {
-            aCoder.encodeDouble(self.biodiesel!, forKey: JSON_PRECIO_BIODIESEL_KEY)
+            aCoder.encode(self.biodiesel!, forKey: JSON_PRECIO_BIODIESEL_KEY)
         }
         
         if self.bioetanol != nil {
-            aCoder.encodeDouble(self.bioetanol!, forKey: JSON_PRECIO_BIOETANOL_KEY)
+            aCoder.encode(self.bioetanol!, forKey: JSON_PRECIO_BIOETANOL_KEY)
         }
         
         if self.bioalcohol != nil {
-            aCoder.encodeDouble(self.bioalcohol!, forKey: JSON_PRECIO_BIOALCOHOL_KEY)
+            aCoder.encode(self.bioalcohol!, forKey: JSON_PRECIO_BIOALCOHOL_KEY)
         }
         
         if self.gasNaturalComprimido != nil {
-            aCoder.encodeDouble(self.gasNaturalComprimido!, forKey: JSON_PRECIO_GAS_NATURAL_COMPRIMIDO_KEY)
+            aCoder.encode(self.gasNaturalComprimido!, forKey: JSON_PRECIO_GAS_NATURAL_COMPRIMIDO_KEY)
         }
         
         if self.gasoleoA != nil {
-            aCoder.encodeDouble(self.gasoleoA!, forKey: JSON_PRECIO_GASOLEO_A_KEY)
+            aCoder.encode(self.gasoleoA!, forKey: JSON_PRECIO_GASOLEO_A_KEY)
         }
         
         if self.nuevoGasoleoA != nil {
-            aCoder.encodeDouble(self.nuevoGasoleoA!, forKey: JSON_PRECIO_NUEVO_GASOLEO_A_KEY)
+            aCoder.encode(self.nuevoGasoleoA!, forKey: JSON_PRECIO_NUEVO_GASOLEO_A_KEY)
         }
         
         if self.gasolina95 != nil {
-            aCoder.encodeDouble(self.gasolina95!, forKey: JSON_PRECIO_GASOLINA95_KEY)
+            aCoder.encode(self.gasolina95!, forKey: JSON_PRECIO_GASOLINA95_KEY)
         }
         
         if self.gasolina98 != nil {
-            aCoder.encodeDouble(self.gasolina98!, forKey: JSON_PRECIO_GASOLINA98_KEY)
+            aCoder.encode(self.gasolina98!, forKey: JSON_PRECIO_GASOLINA98_KEY)
         }
         
         if self.esterMetilico != nil {
-            aCoder.encodeDouble(self.esterMetilico!, forKey: JSON_PRECIO_ESTER_METILICO_KEY)
+            aCoder.encode(self.esterMetilico!, forKey: JSON_PRECIO_ESTER_METILICO_KEY)
         }
     }
     
@@ -266,49 +266,49 @@ class Gasolinera: NSObject {
         
         super.init()
         
-        self.margen = aDecoder.decodeObjectForKey(JSON_MARGEN_KEY) as! String
+        self.margen = aDecoder.decodeObject(forKey: JSON_MARGEN_KEY) as! String
         
-        self.rotulo = aDecoder.decodeObjectForKey(JSON_ROTULO_KEY) as! String
+        self.rotulo = aDecoder.decodeObject(forKey: JSON_ROTULO_KEY) as! String
         
-        self.remision = aDecoder.decodeObjectForKey(JSON_REMISION_KEY) as! String
+        self.remision = aDecoder.decodeObject(forKey: JSON_REMISION_KEY) as! String
         
-        self.horario = aDecoder.decodeObjectForKey(JSON_HORARIO_KEY) as! String
+        self.horario = aDecoder.decodeObject(forKey: JSON_HORARIO_KEY) as! String
         
-        self.tipoVenta = aDecoder.decodeObjectForKey(JSON_TIPO_VENTA_KEY) as! String
+        self.tipoVenta = aDecoder.decodeObject(forKey: JSON_TIPO_VENTA_KEY) as! String
         
-        self.latitud = aDecoder.decodeDoubleForKey(JSON_LATITUD_KEY)
+        self.latitud = aDecoder.decodeDouble(forKey: JSON_LATITUD_KEY)
         
-        self.longitud = aDecoder.decodeDoubleForKey(JSON_LONGITUD_KEY)
+        self.longitud = aDecoder.decodeDouble(forKey: JSON_LONGITUD_KEY)
         
-        self.localidad = aDecoder.decodeObjectForKey(JSON_LOCALIDAD_KEY) as! String
+        self.localidad = aDecoder.decodeObject(forKey: JSON_LOCALIDAD_KEY) as! String
         
-        self.municipio = aDecoder.decodeObjectForKey(JSON_MUNICIPIO_KEY) as! String
+        self.municipio = aDecoder.decodeObject(forKey: JSON_MUNICIPIO_KEY) as! String
         
-        self.provincia = aDecoder.decodeObjectForKey(JSON_PROVINCIA_KEY) as! String
+        self.provincia = aDecoder.decodeObject(forKey: JSON_PROVINCIA_KEY) as! String
         
-        self.cp = aDecoder.decodeObjectForKey(JSON_CODIGO_POSTAL_KEY) as! String
+        self.cp = aDecoder.decodeObject(forKey: JSON_CODIGO_POSTAL_KEY) as! String
         
-        self.direccion = aDecoder.decodeObjectForKey(JSON_DIRECCION_KEY) as? String
+        self.direccion = aDecoder.decodeObject(forKey: JSON_DIRECCION_KEY) as? String
         
         //Precios
         
-        self.biodiesel = aDecoder.decodeDoubleForKey(JSON_PRECIO_BIODIESEL_KEY)
+        self.biodiesel = aDecoder.decodeDouble(forKey: JSON_PRECIO_BIODIESEL_KEY)
         
-        self.bioetanol = aDecoder.decodeDoubleForKey(JSON_PRECIO_BIOETANOL_KEY)
+        self.bioetanol = aDecoder.decodeDouble(forKey: JSON_PRECIO_BIOETANOL_KEY)
         
-        self.bioalcohol = aDecoder.decodeDoubleForKey(JSON_PRECIO_BIOALCOHOL_KEY)
+        self.bioalcohol = aDecoder.decodeDouble(forKey: JSON_PRECIO_BIOALCOHOL_KEY)
         
-        self.gasNaturalComprimido = aDecoder.decodeDoubleForKey(JSON_PRECIO_GAS_NATURAL_COMPRIMIDO_KEY)
+        self.gasNaturalComprimido = aDecoder.decodeDouble(forKey: JSON_PRECIO_GAS_NATURAL_COMPRIMIDO_KEY)
         
-        self.gasoleoA = aDecoder.decodeDoubleForKey(JSON_PRECIO_GASOLEO_A_KEY)
+        self.gasoleoA = aDecoder.decodeDouble(forKey: JSON_PRECIO_GASOLEO_A_KEY)
         
-        self.nuevoGasoleoA = aDecoder.decodeDoubleForKey(JSON_PRECIO_NUEVO_GASOLEO_A_KEY)
+        self.nuevoGasoleoA = aDecoder.decodeDouble(forKey: JSON_PRECIO_NUEVO_GASOLEO_A_KEY)
         
-        self.gasolina95 = aDecoder.decodeDoubleForKey(JSON_PRECIO_GASOLINA95_KEY)
+        self.gasolina95 = aDecoder.decodeDouble(forKey: JSON_PRECIO_GASOLINA95_KEY)
         
-        self.gasolina98 = aDecoder.decodeDoubleForKey(JSON_PRECIO_GASOLINA98_KEY)
+        self.gasolina98 = aDecoder.decodeDouble(forKey: JSON_PRECIO_GASOLINA98_KEY)
         
-        self.esterMetilico = aDecoder.decodeDoubleForKey(JSON_PRECIO_ESTER_METILICO_KEY)
+        self.esterMetilico = aDecoder.decodeDouble(forKey: JSON_PRECIO_ESTER_METILICO_KEY)
         
     }
     
@@ -317,13 +317,13 @@ class Gasolinera: NSObject {
 //Extension to read number with comma as a decimal point
 extension String {
     var doubleConverter: Double {
-        let converter = NSNumberFormatter()
+        let converter = NumberFormatter()
         converter.decimalSeparator = "."
-        if let result = converter.numberFromString(self) {
+        if let result = converter.number(from: self) {
             return result.doubleValue
         } else {
             converter.decimalSeparator = ","
-            if let result = converter.numberFromString(self) {
+            if let result = converter.number(from: self) {
                 return result.doubleValue
             }
         }

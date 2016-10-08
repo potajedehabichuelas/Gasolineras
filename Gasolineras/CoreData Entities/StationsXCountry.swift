@@ -11,7 +11,7 @@ import CoreData
 
 class StationsXCountry: NSManagedObject {
 
-    @NSManaged var lastUpdated: NSDate
+    @NSManaged var lastUpdated: Date
     @NSManaged var notes: String
     @NSManaged var hasStates: StationsXState
 

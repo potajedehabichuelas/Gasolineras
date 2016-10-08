@@ -12,7 +12,7 @@ import UIKit
 class HttpHelper: NSObject {
     
     //POST Request
-    class func httpPostURL(url: String, postPath: String?, parametersDict:Dictionary<String, AnyObject>?) -> AnyObject?
+    class func httpPostURL(_ url: String, postPath: String?, parametersDict:Dictionary<String, AnyObject>?) -> AnyObject?
     {
         // ? declares variable as optional, just in case the request fails
         var responseJSON : AnyObject? = nil;
@@ -20,41 +20,41 @@ class HttpHelper: NSObject {
         //Create the urls
         var fullURL = url;
         if (postPath != nil) {
-            fullURL = url.stringByAppendingString(postPath!);
+            fullURL = url + postPath!;
         }
         
         //Semaphore to wait for completition block
-        let semaphore: dispatch_semaphore_t = dispatch_semaphore_create(0);
+        let semaphore: DispatchSemaphore = DispatchSemaphore(value: 0);
         
         let manager : AFHTTPSessionManager = AFHTTPSessionManager();
         
-        manager.POST(fullURL, parameters: parametersDict, progress: nil, success: {
-            (operation: NSURLSessionTask!,responseObject: AnyObject?) in
+        manager.post(fullURL, parameters: parametersDict, progress: nil, success: {
+            (operation: URLSessionTask!, responseObject: Any) in
             //print("JSON: " + responseObject!.description);
             
-            responseJSON = responseObject;
+            responseJSON = responseObject as AnyObject?;
             //Signal semaphore
-            dispatch_semaphore_signal(semaphore);
+            semaphore.signal();
             
-            }, failure: { (operation: NSURLSessionTask?,error: NSError!) in
+            }, failure: { (operation: URLSessionTask?, error: Error!) in
                 print("[HTTPHelper Error]: " + error.localizedDescription);
                 //Maybe check for internet connection ?
                 
                 //Signal semaphore
-                dispatch_semaphore_signal(semaphore);
+                semaphore.signal();
         })
         
         //Wait for the completition of the request
-        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
-    
+        _ = semaphore.wait(timeout: DispatchTime.distantFuture);
+        
         return responseJSON;
     }
     
-
-    //GET Request
-    class func httpGetURL(url: String, postPath: String?, parametersDict:Dictionary<String, AnyObject>?) -> AnyObject?
-    {
     
+    //GET Request
+    class func httpGetURL(_ url: String, postPath: String?, parametersDict:Dictionary<String, AnyObject>?) -> AnyObject?
+    {
+        
         // ? declares variable as optional, just in case the request fails
         var responseJSON : AnyObject? = nil;
         
@@ -62,35 +62,35 @@ class HttpHelper: NSObject {
         //Create the urls
         var fullURL = url;
         if (postPath != nil) {
-            fullURL = url.stringByAppendingString(postPath!);
+            fullURL = url + postPath!;
         }
         
         //Semaphore to wait for completition block
-        let semaphore: dispatch_semaphore_t = dispatch_semaphore_create(0);
+        let semaphore: DispatchSemaphore = DispatchSemaphore(value: 0);
         
         let manager : AFHTTPSessionManager = AFHTTPSessionManager();
         
-        manager.GET(fullURL, parameters: parametersDict, progress: nil, success:  {
-            (operation: NSURLSessionTask!,responseObject: AnyObject?) in
+        manager.get(fullURL, parameters: parametersDict, progress: nil, success:  {
+            (operation: URLSessionTask!, responseObject: Any) in
             //println("JSON: " + responseObject.description);
             
-            responseJSON = responseObject;
+            responseJSON = responseObject as AnyObject?;
             //println(responseJSON);
             //Signal semaphore
-            dispatch_semaphore_signal(semaphore);
+            semaphore.signal();
             
-            }, failure: { (operation: NSURLSessionTask?,error: NSError!) in
+            }, failure: { (operation: URLSessionTask?, error: Error!) in
                 print("[HTTPHelper Error]: " + error.localizedDescription);
                 //Maybe check for internet connection ?
                 
                 //Signal semaphore
-                dispatch_semaphore_signal(semaphore);
+                semaphore.signal();
         })
         
         //Wait for the completition of the request
-        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+        _ = semaphore.wait(timeout: DispatchTime.distantFuture);
         
         return responseJSON;
-
+        
     }
 }

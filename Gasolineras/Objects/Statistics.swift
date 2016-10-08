@@ -31,10 +31,10 @@ class Statistics: NSObject {
     
     func calculateStats(){
         //Sort the arrays
-        gas98Array.sortInPlace()
-        gas95Array.sortInPlace()
-        dieselArray.sortInPlace()
-        dieselPlusArray.sortInPlace()
+        gas98Array.sort()
+        gas95Array.sort()
+        dieselArray.sort()
+        dieselPlusArray.sort()
         sorted = true;
     }
     
@@ -42,7 +42,7 @@ class Statistics: NSObject {
     //Returns the percentile of the fuel price
     //This is useful to mark the fuel following a color scheme based on its price
     // Red -> expensive, Orange -> Close to avg price (+/- 20%), Green -> Cheap price
-    func getRangeForValue(price : Double, fuelType : String) -> Double {
+    func getRangeForValue(_ price : Double, fuelType : String) -> Double {
         
         //Get sorted ( - to +) array, iterate from 0 to N stop where value is greater than given value
         //Get the position n of the array where that happened

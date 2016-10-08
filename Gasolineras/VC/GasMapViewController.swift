@@ -35,7 +35,7 @@ class GasMapViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         let request = GADRequest()
         request.testDevices = ["9b387d95ac3f0f203b17157b601acb00"]
         bannerView.rootViewController = self
-        bannerView.loadRequest(GADRequest())
+        bannerView.load(GADRequest())
     
         manager = CLLocationManager()
         manager.delegate = self
@@ -46,7 +46,7 @@ class GasMapViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     
     @IBOutlet weak var driveToStationButton: UIBarButtonItem!
 
-    @IBAction func DriveToStation(sender: AnyObject) {
+    @IBAction func DriveToStation(_ sender: AnyObject) {
         //Open maps with gps directions
         
         var coordinates : CLLocationCoordinate2D;
@@ -64,17 +64,17 @@ class GasMapViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         
         let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
         let options = [
-            MKLaunchOptionsMapCenterKey: NSValue(MKCoordinate: regionSpan.center),
-            MKLaunchOptionsMapSpanKey: NSValue(MKCoordinateSpan: regionSpan.span)
+            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
         ]
         let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
         let mapItem = MKMapItem(placemark: placemark)
         mapItem.name = placemarkName
-        mapItem.openInMapsWithLaunchOptions(options)
+        mapItem.openInMaps(launchOptions: options)
     }
     
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         
@@ -89,7 +89,7 @@ class GasMapViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
             
         } else {
             //Hide nav bar with options
-            driveToStationButton.enabled = false;
+            driveToStationButton.isEnabled = false;
             navigationController?.setNavigationBarHidden(true, animated: true)
             
             //Check if we need to update -> there has been a new query on the db and we need to update array reference
@@ -101,7 +101,7 @@ class GasMapViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                 
                 //Zoom according to the settings
                 //Get distance setting and filter it
-                let distanceStr : String = Storage.sharedInstance.settings.objectForKey(STORAGE_DISTANCE_SETTINGS)!.stringByReplacingOccurrencesOfString(" Km", withString: "")
+                let distanceStr : String = (Storage.sharedInstance.settings.object(forKey: STORAGE_DISTANCE_SETTINGS)! as AnyObject).replacingOccurrences(of: " Km", with: "")
                 let distanceRange : Double = Double(distanceStr)! * 1000
                 
                 if manager.location != nil {
@@ -109,9 +109,9 @@ class GasMapViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                         CLLocationCoordinate2DMake(manager.location!.coordinate.latitude, manager.location!.coordinate.longitude), distanceRange, distanceRange);
                     map.setRegion(rgn, animated: true)
                 } else {
-                    if  Storage.sharedInstance.settings.objectForKey(STORAGE_LAST_LAT_SETTINGS)!.doubleValue > 0 && Storage.sharedInstance.settings.objectForKey(STORAGE_LAST_LON_SETTINGS)!.doubleValue > 0 {
+                    if  (Storage.sharedInstance.settings.object(forKey: STORAGE_LAST_LAT_SETTINGS)! as AnyObject).doubleValue > 0 && (Storage.sharedInstance.settings.object(forKey: STORAGE_LAST_LON_SETTINGS)! as AnyObject).doubleValue > 0 {
                         let rgn = MKCoordinateRegionMakeWithDistance(
-                            CLLocationCoordinate2DMake(Storage.sharedInstance.settings.objectForKey(STORAGE_LAST_LAT_SETTINGS)!.doubleValue, Storage.sharedInstance.settings.objectForKey(STORAGE_LAST_LON_SETTINGS)!.doubleValue), distanceRange, distanceRange);
+                            CLLocationCoordinate2DMake((Storage.sharedInstance.settings.object(forKey: STORAGE_LAST_LAT_SETTINGS)! as AnyObject).doubleValue, (Storage.sharedInstance.settings.object(forKey: STORAGE_LAST_LON_SETTINGS)! as AnyObject).doubleValue), distanceRange, distanceRange);
                         map.setRegion(rgn, animated: true)
                     }
                 }
@@ -178,7 +178,7 @@ class GasMapViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                 let pctg = Statistics.sharedInstance.getRangeForValue(station.gasolina98!, fuelType: fuelSearchType)
                 self.setColorForPin(annotation, percentage: pctg)
             } else {
-                annotation.pinColor = UIColor.blackColor()
+                annotation.pinColor = UIColor.black
             }
             
             map.addAnnotation(annotation)
@@ -186,7 +186,7 @@ class GasMapViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
 
     }
     
-    func setColorForLabel(label : UILabel, percentage : Double) {
+    func setColorForLabel(_ label : UILabel, percentage : Double) {
         if percentage < 30 {
             //Green color, cheap
             label.textColor = UIColor(red: 0, green: 128/255, blue: 0, alpha: 1)
@@ -199,7 +199,7 @@ class GasMapViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         }
     }
     
-    func setColorForPin(pin : GasPointAnnotation, percentage : Double) {
+    func setColorForPin(_ pin : GasPointAnnotation, percentage : Double) {
         if percentage < 30 {
             //Green color, cheap
             pin.pinColor = UIColor(red: 0, green: 128/255, blue: 0, alpha: 1)
@@ -214,35 +214,35 @@ class GasMapViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     
     // MARK: - MKAnnotationView
     
-    func mapView(mapView: MKMapView, didDeselectAnnotationView view: MKAnnotationView) {
-        if view.annotation!.isKindOfClass(MKUserLocation){
+    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+        if view.annotation!.isKind(of: MKUserLocation.self){
             return
         }
         
-        driveToStationButton.enabled = false;
+        driveToStationButton.isEnabled = false;
         navigationController?.setNavigationBarHidden(true, animated: true)
         //Remove the calloutview
         let cpa = view.annotation as! GasPointAnnotation
         
         if cpa.callOutView != nil {
-            UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 1.5,
+            UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 1.5,
                 initialSpringVelocity: 0.5, options: [], animations:
                 {
-                    cpa.callOutView?.transform = CGAffineTransformMakeScale(0, 0)
+                    cpa.callOutView?.transform = CGAffineTransform(scaleX: 0, y: 0)
                 }, completion:{ (Bool)  in
                     //cpa.callOutView?.removeFromSuperview();
             })
         }
     }
     
-    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
-        if annotation.isKindOfClass(MKUserLocation){
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation.isKind(of: MKUserLocation.self){
             return nil;
         }
         
         let identifier = "pin"
         var view: MKPinAnnotationView
-        if let dequeuedView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier)
+        if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
             as? MKPinAnnotationView {
                 dequeuedView.annotation = annotation
                 view = dequeuedView
@@ -258,26 +258,26 @@ class GasMapViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
 
     }
 
-    func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
        
-        if view.annotation!.isKindOfClass(MKUserLocation){
+        if view.annotation!.isKind(of: MKUserLocation.self){
             return
         }
         
         view.canShowCallout = false
         //nav bar
-        driveToStationButton.enabled = true;
+        driveToStationButton.isEnabled = true;
         navigationController?.setNavigationBarHidden(false, animated: true)
         
-        let customView = (NSBundle.mainBundle().loadNibNamed("GasAnnotationView", owner: self, options: nil))[0] as! GasAnnotationView;
+        let customView = (Bundle.main.loadNibNamed("GasAnnotationView", owner: self, options: nil))?[0] as! GasAnnotationView;
         
         var calloutViewFrame = customView.frame;
-        calloutViewFrame.origin = CGPointMake(-calloutViewFrame.size.width/2 + 5, -calloutViewFrame.size.height);
+        calloutViewFrame.origin = CGPoint(x: -calloutViewFrame.size.width/2 + 5, y: -calloutViewFrame.size.height);
         customView.frame = calloutViewFrame;
         
         customView.clipsToBounds = true
         customView.layer.cornerRadius = 8.0
-        customView.layer.borderColor = UIColor.darkGrayColor().CGColor
+        customView.layer.borderColor = UIColor.darkGray.cgColor
         customView.layer.borderWidth = 1.5
         
         let cpa = view.annotation as! GasPointAnnotation
@@ -312,12 +312,12 @@ class GasMapViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         //Set the reference to the view
         cpa.callOutView = customView;
         view.addSubview(customView)
-        customView.transform = CGAffineTransformMakeScale(0, 0)
+        customView.transform = CGAffineTransform(scaleX: 0, y: 0)
         
-        UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 1.5,
+        UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 1.5,
             initialSpringVelocity: 0.5, options: [], animations:
             {
-                customView.transform = CGAffineTransformMakeScale(1, 1)
+                customView.transform = CGAffineTransform(scaleX: 1, y: 1)
             }, completion: nil)
         
         //zoom map to show callout
@@ -330,7 +330,7 @@ class GasMapViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     
     // MARK: - CLLocationManager
     
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 
     }
 }

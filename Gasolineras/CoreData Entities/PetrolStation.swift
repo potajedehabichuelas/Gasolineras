@@ -35,7 +35,7 @@ class PetrolStation : NSManagedObject, NSCopying {
     @NSManaged var tipoVenta: String
     @NSManaged var belongsToState: StationsXState
     
-    func copyWithZone(zone: NSZone) -> AnyObject {
+    func copy(with zone: NSZone?) -> Any {
         return PetrolStation()
     }
 

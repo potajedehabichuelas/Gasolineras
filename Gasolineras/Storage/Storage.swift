@@ -10,6 +10,28 @@ import UIKit
 import CoreData
 import CoreLocation
 
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+    switch (lhs, rhs) {
+    case let (l?, r?):
+        return l < r
+    case (nil, _?):
+        return true
+    default:
+        return false
+    }
+}
+
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+    switch (lhs, rhs) {
+    case let (l?, r?):
+        return l > r
+    default:
+        return rhs < lhs
+    }
+}
+;
+
+
 //For filter configuration
 private let STORAGE_DEFAULT_SETTINGS : String = "defaultSettings";
 
@@ -51,8 +73,8 @@ class Storage: NSObject {
     
     class func retrieveSettings() -> NSMutableDictionary
     {
-        if let data = NSUserDefaults.standardUserDefaults().objectForKey(STORAGE_DEFAULT_SETTINGS) as? NSData {
-            let set : NSMutableDictionary = NSKeyedUnarchiver.unarchiveObjectWithData(data) as! NSMutableDictionary
+        if let data = UserDefaults.standard.object(forKey: STORAGE_DEFAULT_SETTINGS) as? Data {
+            let set : NSMutableDictionary = NSKeyedUnarchiver.unarchiveObject(with: data) as! NSMutableDictionary
             return set;
         } else {
             //No settings, recreate dictionary
@@ -62,16 +84,16 @@ class Storage: NSObject {
     }
     
 
-    func saveSettings(setDict: NSMutableDictionary)
+    func saveSettings(_ setDict: NSMutableDictionary)
     {
         //Update the class var
         Storage.sharedInstance.settings = setDict;
         //Save to defaults object
-        NSUserDefaults.standardUserDefaults().setObject(NSKeyedArchiver.archivedDataWithRootObject(setDict), forKey: STORAGE_DEFAULT_SETTINGS)
+        UserDefaults.standard.set(NSKeyedArchiver.archivedData(withRootObject: setDict), forKey: STORAGE_DEFAULT_SETTINGS)
     }
 
 
-    class func saveCountryStations(stationsForCountry: CountryStations)
+    class func saveCountryStations(_ stationsForCountry: CountryStations)
     {
         print("Log: Saving to Core Data....")
 
@@ -87,8 +109,8 @@ class Storage: NSObject {
         
         let moc = sharedInstance.managedObjectContext
         
-        let managedContext = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
-        managedContext.parentContext = moc
+        let managedContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+        managedContext.parent = moc
         
         //First of all dump all the data
         do {
@@ -98,11 +120,11 @@ class Storage: NSObject {
         }
         
         //Create a country entity description
-        let countryEntityDescription =  NSEntityDescription.entityForName(COUNTRY_STATIONS_ENTITY,
-            inManagedObjectContext: managedContext)
+        let countryEntityDescription =  NSEntityDescription.entity(forEntityName: COUNTRY_STATIONS_ENTITY,
+            in: managedContext)
         
         let countryStations = StationsXCountry(entity: countryEntityDescription!,
-            insertIntoManagedObjectContext: managedContext)
+            insertInto: managedContext)
         
         //Set the country object
         if stationsForCountry.lastUpdated != nil {
@@ -119,11 +141,11 @@ class Storage: NSObject {
         
         for stationObject : Gasolinera in stationsForCountry.stationsArray {
             //Create a petrolStation entity description
-            let stationEntityDescription =  NSEntityDescription.entityForName(STATIONS_ENTITY,
-                inManagedObjectContext: managedContext)
+            let stationEntityDescription =  NSEntityDescription.entity(forEntityName: STATIONS_ENTITY,
+                in: managedContext)
             
             let station = PetrolStation(entity: stationEntityDescription!,
-                insertIntoManagedObjectContext: managedContext)
+                insertInto: managedContext)
             
             //Fill in the details of the station
             station.margen = stationObject.margen;
@@ -131,8 +153,8 @@ class Storage: NSObject {
             station.remision = stationObject.remision;
             station.horario = stationObject.horario;
             station.tipoVenta = stationObject.tipoVenta;
-            station.longitud = stationObject.longitud;
-            station.latitud = stationObject.latitud;
+            station.longitud = stationObject.longitud as NSNumber;
+            station.latitud = stationObject.latitud as NSNumber;
             station.localidad = stationObject.localidad;
             station.municipio = stationObject.municipio;
             station.provincia = stationObject.provincia;
@@ -144,43 +166,43 @@ class Storage: NSObject {
             }
             
             if stationObject.biodiesel != nil {
-                station.biodiesel = stationObject.biodiesel!;
+                station.biodiesel = NSNumber(value:stationObject.biodiesel!);
             }
             
             if stationObject.bioetanol != nil {
-                station.bioetanol = stationObject.bioetanol!;
+                station.bioetanol = NSNumber(value:stationObject.bioetanol!);
             }
             
             if stationObject.bioalcohol != nil {
-                station.bioalcohol = stationObject.bioalcohol!;
+                station.bioalcohol = NSNumber(value:stationObject.bioalcohol!);
             }
             
             if stationObject.bioalcohol != nil {
-                station.bioalcohol = stationObject.bioalcohol!;
+                station.bioalcohol = NSNumber(value:stationObject.bioalcohol!);
             }
             
             if stationObject.gasNaturalComprimido != nil {
-                station.gasNatural = stationObject.gasNaturalComprimido!;
+                station.gasNatural = NSNumber(value:stationObject.gasNaturalComprimido!);
             }
             
             if stationObject.gasoleoA != nil {
-                station.gasoleoA = stationObject.gasoleoA!;
+                station.gasoleoA = NSNumber(value:stationObject.gasoleoA!);
             }
             
             if stationObject.nuevoGasoleoA != nil {
-                station.nuevoGasoleoA = stationObject.nuevoGasoleoA!;
+                station.nuevoGasoleoA = NSNumber(value:stationObject.nuevoGasoleoA!);
             }
             
             if stationObject.gasolina95 != nil {
-                station.gasolina95 = stationObject.gasolina95!;
+                station.gasolina95 = NSNumber(value:stationObject.gasolina95!);
             }
             
             if stationObject.gasolina98 != nil {
-                station.gasolina98 = stationObject.gasolina98!;
+                station.gasolina98 = NSNumber(value:stationObject.gasolina98!);
             }
             
             if stationObject.esterMetilico != nil {
-                station.esterMetilico = stationObject.esterMetilico!;
+                station.esterMetilico = NSNumber(value:stationObject.esterMetilico!);
             }
             
             // Create Relationship with the state
@@ -195,11 +217,11 @@ class Storage: NSObject {
             
             if isNew {
                 //Create new StationsXState entity
-                let stateEntityDescription =  NSEntityDescription.entityForName(STATE_ENTITY,
-                    inManagedObjectContext: managedContext)
+                let stateEntityDescription =  NSEntityDescription.entity(forEntityName: STATE_ENTITY,
+                    in: managedContext)
                 
                 let stateEntity = StationsXState(entity: stateEntityDescription!,
-                    insertIntoManagedObjectContext: managedContext)
+                    insertInto: managedContext)
                 //set name
                 stateEntity.stateName = stationObject.provincia
                 //Ref to country
@@ -230,19 +252,19 @@ class Storage: NSObject {
     
     func checkpricesUpdated() -> Bool {
         
-        let requestStation = NSFetchRequest(entityName: COUNTRY_STATIONS_ENTITY)
+        let requestStation : NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: COUNTRY_STATIONS_ENTITY)
         
         do {
-            let fetchResults = try Storage.sharedInstance.managedObjectContext.executeFetchRequest(requestStation) as? [StationsXCountry]
+            let fetchResults = try Storage.sharedInstance.managedObjectContext.fetch(requestStation) as? [StationsXCountry]
             
             if (fetchResults != nil && fetchResults?.count > 0) {
-                if let countryStation : StationsXCountry = (fetchResults?.first)! {
+                if let countryStation : StationsXCountry = fetchResults!.first {
                     //Compare the dates
-                    let todayDate = NSDate(timeIntervalSinceNow: 0)
-                    let calendar = NSCalendar.currentCalendar()
+                    let todayDate = Date(timeIntervalSinceNow: 0)
+                    let calendar = Calendar.current
                     
-                    let comps1 = calendar.components([NSCalendarUnit.Month , NSCalendarUnit.Year , NSCalendarUnit.Day], fromDate:countryStation.lastUpdated)
-                    let comps2 = calendar.components([NSCalendarUnit.Month , NSCalendarUnit.Year , NSCalendarUnit.Day], fromDate:todayDate)
+                    let comps1 = (calendar as NSCalendar).components([NSCalendar.Unit.month , NSCalendar.Unit.year , NSCalendar.Unit.day], from:countryStation.lastUpdated as Date)
+                    let comps2 = (calendar as NSCalendar).components([NSCalendar.Unit.month , NSCalendar.Unit.year , NSCalendar.Unit.day], from:todayDate)
                     
                     return (comps1.day == comps2.day) && (comps1.month == comps2.month) && (comps1.year == comps2.year)
                 } else { return false}
@@ -262,26 +284,26 @@ class Storage: NSObject {
         //Delete the persistent store and file
         let storeCoordinator:NSPersistentStoreCoordinator = sharedInstance.persistentStoreCoordinator
         let store:NSPersistentStore = storeCoordinator.persistentStores[0]
-        let storeURL:NSURL = store.URL!
+        let storeURL:URL = store.url!
         
-        try storeCoordinator.removePersistentStore(store)
-        try NSFileManager.defaultManager().removeItemAtPath(storeURL.path!)
+        try storeCoordinator.remove(store)
+        try FileManager.default.removeItem(atPath: storeURL.path)
         
         //Recreate persisten store
-        try sharedInstance.managedObjectContext.persistentStoreCoordinator?.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: store.URL, options: nil)
+        try sharedInstance.managedObjectContext.persistentStoreCoordinator?.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: store.url, options: nil)
     }
     
     //Returns an array of Stations for a condition given, i.e distance
     //It also sets the instance variable gasStations to the last retrieved stations to avoid reloading
     //the same data again and again
     
-    func getPetrolStations(lat : Double, long : Double, range : Double) -> Array<Gasolinera>? {
+    func getPetrolStations(_ lat : Double, long : Double, range : Double) -> Array<Gasolinera>? {
         
         
-        let requestStation = NSFetchRequest(entityName: STATIONS_ENTITY)
+        let requestStation : NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: STATIONS_ENTITY)
         
         do {
-            let fetchResults = try Storage.sharedInstance.managedObjectContext.executeFetchRequest(requestStation) as? [PetrolStation]
+            let fetchResults = try Storage.sharedInstance.managedObjectContext.fetch(requestStation) as? [PetrolStation]
             
             if (fetchResults != nil) {
                 
@@ -294,7 +316,7 @@ class Storage: NSObject {
                 for state : PetrolStation in fetchResults! {
                     //Filter gas stations by distance
                     let stationLoc : CLLocation = CLLocation.init(latitude: state.latitud.doubleValue, longitude: state.longitud.doubleValue)
-                    let distanceToUser = userLoc.distanceFromLocation(stationLoc)
+                    let distanceToUser = userLoc.distance(from: stationLoc)
                     
                     if distanceToUser <= range {
                         filteredArray.append(state);
@@ -339,7 +361,7 @@ class Storage: NSObject {
     
     //Fills a Gasolinera object from a Petrol station entity from Core Data
     
-    class func stationEntityToObject(stationsDB : Array<PetrolStation>) -> Array<Gasolinera> {
+    class func stationEntityToObject(_ stationsDB : Array<PetrolStation>) -> Array<Gasolinera> {
         
         var estaciones : Array<Gasolinera> =  Array<Gasolinera>();
         
@@ -376,15 +398,15 @@ class Storage: NSObject {
     
     //Fills a Petrol station entity from Core Data to a Gasolinera Object
     
-    class func stationObjectToEntity(stationObject : Gasolinera) -> PetrolStation {
+    class func stationObjectToEntity(_ stationObject : Gasolinera) -> PetrolStation {
         
         let managedContext = sharedInstance.managedObjectContext
         
-        let stationEntityDescription =  NSEntityDescription.entityForName(STATIONS_ENTITY,
-            inManagedObjectContext: managedContext)
+        let stationEntityDescription =  NSEntityDescription.entity(forEntityName: STATIONS_ENTITY,
+            in: managedContext)
         
         let station = PetrolStation(entity: stationEntityDescription!,
-            insertIntoManagedObjectContext: managedContext)
+            insertInto: managedContext)
         
 
         
@@ -394,31 +416,31 @@ class Storage: NSObject {
     
     // MARK: - Core Data stack
     
-    lazy var applicationDocumentsDirectory: NSURL = {
+    lazy var applicationDocumentsDirectory: URL = {
         // The directory the application uses to store the Core Data store file. This code uses a directory named "Xquare.test" in the application's documents Application Support directory.
-        let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
+        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return urls[urls.count-1]
     }()
     
     lazy var managedObjectModel: NSManagedObjectModel = {
         // The managed object model for the application. This property is not optional. It is a fatal error for the application not to be able to find and load its model.
-        let modelURL = NSBundle.mainBundle().URLForResource("Gasolineras", withExtension: "momd")!
-        return NSManagedObjectModel(contentsOfURL: modelURL)!
+        let modelURL = Bundle.main.url(forResource: "Gasolineras", withExtension: "momd")!
+        return NSManagedObjectModel(contentsOf: modelURL)!
     }()
     
     lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator = {
         // The persistent store coordinator for the application. This implementation creates and returns a coordinator, having added the store for the application to it. This property is optional since there are legitimate error conditions that could cause the creation of the store to fail.
         // Create the coordinator and store
         let coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
-        let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("Gasolineras.sqlite")
+        let url = self.applicationDocumentsDirectory.appendingPathComponent("Gasolineras.sqlite")
         var failureReason = "There was an error creating or loading the application's saved data."
         do {
-            try coordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: nil)
+            try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: nil)
         } catch {
             // Report any error we got.
             var dict = [String: AnyObject]()
-            dict[NSLocalizedDescriptionKey] = "Failed to initialize the application's saved data"
-            dict[NSLocalizedFailureReasonErrorKey] = failureReason
+            dict[NSLocalizedDescriptionKey] = "Failed to initialize the application's saved data" as AnyObject?
+            dict[NSLocalizedFailureReasonErrorKey] = failureReason as AnyObject?
             
             dict[NSUnderlyingErrorKey] = error as NSError
             let wrappedError = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict)
@@ -434,7 +456,7 @@ class Storage: NSObject {
     lazy var managedObjectContext: NSManagedObjectContext = {
         // Returns the managed object context for the application (which is already bound to the persistent store coordinator for the application.) This property is optional since there are legitimate error conditions that could cause the creation of the context to fail.
         let coordinator = self.persistentStoreCoordinator
-        var managedObjectContext = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
+        var managedObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
         managedObjectContext.persistentStoreCoordinator = coordinator
         return managedObjectContext
     }()

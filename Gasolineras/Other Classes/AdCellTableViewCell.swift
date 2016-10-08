@@ -19,10 +19,10 @@ class AdCellTableViewCell: UITableViewCell {
         
         //Google ads - load
         bannerView.adUnitID = "ca-app-pub-7267181828972563/7783621534"
-        bannerView.loadRequest(GADRequest())
+        bannerView.load(GADRequest())
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state

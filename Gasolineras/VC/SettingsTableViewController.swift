@@ -22,23 +22,23 @@ class SettingsTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 4
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let cell = tableView.cellForRowAtIndexPath(indexPath)
-        cell!.accessoryType = UITableViewCellAccessoryType.Checkmark;
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        cell!.accessoryType = UITableViewCellAccessoryType.checkmark;
         
         //Save to settings
-        if indexPath.section == 0 {
+        if (indexPath as NSIndexPath).section == 0 {
             //Save search type
             Storage.sharedInstance.settings.setValue(cell?.textLabel?.text, forKey: STORAGE_SEARCH_SETTINGS)
-        } else  if indexPath.section == 1 {
+        } else  if (indexPath as NSIndexPath).section == 1 {
             //Save distance
             Storage.sharedInstance.settings.setValue(cell?.textLabel?.text, forKey: STORAGE_DISTANCE_SETTINGS)
         }
@@ -46,17 +46,17 @@ class SettingsTableViewController: UITableViewController {
         self.tableView.reloadData()
     }
     
-    override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        let cell = tableView.cellForRowAtIndexPath(indexPath)
-        cell!.accessoryType = UITableViewCellAccessoryType.None;
+    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        cell!.accessoryType = UITableViewCellAccessoryType.none;
     }
     
-    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
         if (Storage.sharedInstance.settings[STORAGE_SEARCH_SETTINGS] as? String == cell.textLabel?.text || Storage.sharedInstance.settings[STORAGE_DISTANCE_SETTINGS] as? String == cell.textLabel?.text ) {
-            cell.accessoryType = UITableViewCellAccessoryType.Checkmark;
+            cell.accessoryType = UITableViewCellAccessoryType.checkmark;
         } else  {
-            cell.accessoryType = UITableViewCellAccessoryType.None;
+            cell.accessoryType = UITableViewCellAccessoryType.none;
         }
         
     }

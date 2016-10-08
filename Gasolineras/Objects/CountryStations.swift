@@ -33,26 +33,26 @@ class CountryStations: NSObject {
     
     var stationsArray : Array <Gasolinera> = Array();
     
-    var lastUpdated : NSDate!;
+    var lastUpdated : Date!;
     
     var notes : String = "";
     
     // MARK : Public Functions
     
-    class func countryStationsFromJSON(gasDict: NSDictionary, countryName: String) -> CountryStations {
+    class func countryStationsFromJSON(_ gasDict: NSDictionary, countryName: String) -> CountryStations {
         
         let countryStations : CountryStations = CountryStations();
         
         countryStations.countryName = countryName;
         
-        let dateFormatter = NSDateFormatter()
+        let dateFormatter = DateFormatter()
         //Spanish time zone!
         dateFormatter.dateFormat = "dd/MM/yyyy HH:mm:ss +0200"
-        dateFormatter.timeZone = NSTimeZone(abbreviation: "UTC");
+        dateFormatter.timeZone = TimeZone(abbreviation: "UTC");
         //There should always be a date
-        countryStations.lastUpdated = dateFormatter.dateFromString(gasDict.objectForKey(STATIONS_FECHA_KEY) as! String)
+        countryStations.lastUpdated = dateFormatter.date(from: gasDict.object(forKey: STATIONS_FECHA_KEY) as! String)
         //Notes
-        countryStations.notes = gasDict.objectForKey(STATIONS_NOTA_KEY) as! String;
+        countryStations.notes = gasDict.object(forKey: STATIONS_NOTA_KEY) as! String;
         
         //Array of petrol stations
         if let stationArray = gasDict[SPANISH_STATIONS_ARRAY_KEY] as? NSArray {
